@@ -33,7 +33,7 @@ public class Controller {
         char symbol = '+';
         //e tells what button was clicked
         if(e.getSource()==btn_nyKunde){
-            toString(input_nyFornavn.getText(tempFornavn));
+           // toString(input_nyFornavn.getText(tempFornavn));
             tempCprFirst=Integer.parseInt(input_nyCprFirst.getText());
             tempCprLast=Integer.parseInt(input_nyCprLast.getText());
 
