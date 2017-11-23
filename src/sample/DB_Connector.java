@@ -4,12 +4,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+//En klasse der connector til en database
 public class DB_Connector {
 
 
     private static Connection con = null;  // declare a connection
     private static final String DRIVER = "com.mysql.jdbc.Driver"; // JDBC driver
-    private static String url = "jdbc:mysql://localhost:3306/Bank2017DB"; // the url = jdbc:dbms//host name:port#/db name
+    private static String url = "jdbc:mysql://localhost:3306/"; // the url = jdbc:dbms//host name:port#/db name
     private static String usr = "admin"; // user name
     private static String pswrd = "1234";// password
 
