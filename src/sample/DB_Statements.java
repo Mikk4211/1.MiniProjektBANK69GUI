@@ -24,7 +24,7 @@ public class DB_Statements {
 
 
         //    SQL statement
-        String query = "create database Bank2017DB";
+        String query = "create database if not exists Bank2017DB";
         try {
 
             //    create statement
@@ -118,19 +118,17 @@ public class DB_Statements {
     }
 
     //    method to insert data
-    public void insertNyKunde() {
+    public void insertNyKunde(String tempFornavn, String tempEfternavn, int tempCprFirst, int tempnyCprLast, String tempAdr) {
 
         //    SQL statement
-        String tempFornavn = null, tempEfternavn = null, tempAdr = null;
-        int tempCprFirst = 0, tempnyCprLast = 0;
-        String query = "insert into kundeTable " + "(" +
-                "(fName, lName, cprFirst, cprLast,  address) " +
-                tempFornavn  +
-                tempEfternavn +
-                tempCprFirst +
-                tempnyCprLast +
+        String query = "INSERT INTO kundeTable " +
+                "(fName, lName, cprFirst, cprLast,  address) VALUES ('" +
+                tempFornavn  +"', '"+
+                tempEfternavn +"', "+
+                tempCprFirst +", "+
+                tempnyCprLast +", '"+
                 tempAdr +
-                ")";
+                "')";
         try {
 
             //    create statement
