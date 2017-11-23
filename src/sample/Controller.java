@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.*;
+import javafx.scene.control.*;
 
 public class Controller {
 DB_Statements sqlStatement = new DB_Statements();
@@ -12,7 +14,6 @@ DB_Statements sqlStatement = new DB_Statements();
 
     @FXML
     private Button btn_nyKunde;
-
     @FXML
     private TextField input_nyFornavn;
     @FXML
@@ -26,7 +27,7 @@ DB_Statements sqlStatement = new DB_Statements();
     @FXML
     private Label lbl;
     int tempCprFirst, tempCprLast;
-    String tempFornavn = null, tempEfternavn, tempAdr;
+    String tempFornavn, tempEfternavn, tempAdr;
     char symbol;
 
     @FXML
@@ -36,12 +37,12 @@ DB_Statements sqlStatement = new DB_Statements();
         //e tells what button was clicked
         if (e.getSource() == btn_nyKunde) {
             // toString(input_nyFornavn.getText(tempFornavn));
+            tempFornavn = input_nyFornavn.getText();
             tempCprFirst = Integer.parseInt(input_nyCprFirst.getText());
             tempCprLast = Integer.parseInt(input_nyCprLast.getText());
 
-            System.out.println(tempCprFirst + "-" + tempCprLast);
-
-
+            System.out.println(tempCprFirst + "-" + tempCprLast + "REEE!"+tempFornavn);
+            return;
         }
     }
 
