@@ -28,15 +28,19 @@ public class Controller {
     char symbol;
 
     @FXML
-    private void handleButtonAction(ActionEvent e){
-        int num1, num2, answer=0;
+    private void handleButtonAction(ActionEvent e) {
+        int num1, num2, answer = 0;
         char symbol = '+';
         //e tells what button was clicked
-        if(e.getSource()==btn_nyKunde){
-           // toString(input_nyFornavn.getText(tempFornavn));
-            tempCprFirst=Integer.parseInt(input_nyCprFirst.getText());
-            tempCprLast=Integer.parseInt(input_nyCprLast.getText());
+        if (e.getSource() == btn_nyKunde) {
+            // toString(input_nyFornavn.getText(tempFornavn));
+            tempCprFirst = Integer.parseInt(input_nyCprFirst.getText());
+            tempCprLast = Integer.parseInt(input_nyCprLast.getText());
+
+            System.out.println(tempCprFirst + "-" + tempCprLast);
 
 
+        }
+    }
 
 }
