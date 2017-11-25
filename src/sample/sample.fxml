@@ -12,7 +12,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.control.TextField?>
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller" >
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
@@ -43,13 +44,13 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                     <children>
-                                        <TextArea id="OpretnykundeNavn" fx:id="input_nyFornavn" layoutX="14.0" layoutY="37.0" prefHeight="25.0" prefWidth="200.0" promptText="Fornavn" />
-                                        <TextArea id="OpretnykundeNavn" fx:id="input_nyEfternavn" layoutX="14.0" layoutY="82.0" prefHeight="25.0" prefWidth="200.0" promptText="Efternavn" />
-                                        <TextArea id="OpretnykundeCPR" fx:id="input_nyCprFirst" layoutX="14.0" layoutY="129.0" prefHeight="38.0" prefWidth="121.0" promptText="CPR" />
-                                        <TextArea fx:id="input_CprLast" layoutX="145.0" layoutY="129.0" prefHeight="38.0" prefWidth="69.0" promptText="CPR" />
-                                        <TextArea id="OpretnykundeAdresse" fx:id="input_nyAdr" layoutX="14.0" layoutY="175.0" prefHeight="25.0" prefWidth="200.0" promptText="Adresse" />
+                                        <TextField id="OpretnykundeNavnFor" fx:id="input_nyFornavn" layoutX="14.0" layoutY="37.0" prefHeight="25.0" prefWidth="200.0" promptText="Fornavn" />
+                                        <TextField id="OpretnykundeNavnEfter" fx:id="input_nyEfternavn" layoutX="14.0" layoutY="82.0" prefHeight="25.0" prefWidth="200.0" promptText="Efternavn" />
+                                        <TextField id="OpretnykundeCPR" fx:id="input_nyCprFirst" layoutX="14.0" layoutY="129.0" prefHeight="38.0" prefWidth="121.0" promptText="CPR" />
+                                        <TextField fx:id="input_CprLast" layoutX="145.0" layoutY="129.0" prefHeight="38.0" prefWidth="69.0" promptText="CPR" />
+                                        <TextField id="OpretnykundeAdresse" fx:id="input_nyAdr" layoutX="14.0" layoutY="175.0" prefHeight="25.0" prefWidth="200.0" promptText="Adresse" />
                                         <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Opret ny kunde:" />
-                                        <Button fx:id="btn_nyKunde" layoutX="15.0" layoutY="219.0" mnemonicParsing="false" text="Opret kunde" />
+                                        <Button fx:id="btn_nyKunde" layoutX="15.0" onAction="#handleButtonAction" layoutY="219.0" mnemonicParsing="false" text="Opret kunde" />
                                         <Label layoutX="137.0" layoutY="139.0" text="-" />
                                     </children>
                                 </AnchorPane>
