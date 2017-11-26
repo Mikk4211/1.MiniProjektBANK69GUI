@@ -45,6 +45,13 @@ public class Controller {
         if (e.getSource() == btn_nyKunde) {
             //giver fornavn værdien:
             tempFornavn = input_nyFornavn.getText();
+            tempEfternavn = input_nyEfternavn.getText();
+            tempAdr = input_nyAdr.getText();
+
+            /*
+
+
+            */
 
             //Giver cprFirst en værdi:
             /*
@@ -53,13 +60,33 @@ public class Controller {
             //tempCprLast = Integer.parseInt(input_nyCprLast.getText());
             man skal først hente den til en variable og derefter parse den.
              */
-            String tempCprFirstParser = input_nyCprFirst.getText();
+            String tempCprFirstParser = input_nyCprFirst.getText(); // Virker såfremt det er for sig selv.
             tempCprFirst = Integer.parseInt(tempCprFirstParser);
+            String tempCprLastParser = input_nyCprLast.getText();
+            tempCprLast = Integer.parseInt(tempCprLastParser);
+
+            /* Lader til man ikke bare kan Parse begge 2. OBS!!
+            String tempCprLastParser = input_nyCprLast.getText();
+            tempCprLast = Integer.parseInt(tempCprLastParser);
+            */
+
+            /*  Den virker såfremt der skrives noget i cpr first. Men der kan ikke skrives noget i fornavn, uden der skrives i cpr first, så melder den fejl, da den forventer der er noget.
+                Virker også fint med Fornavn, efternavn; såfremt der skrives noget i cpr first. Men virker stadig ikke hvis man laver ny parse til cpr last.
+                Fornavn, efternavn, adr + cprFirst virker.
+                Alle kombinationer virker såfremt cprLast ikke med. Vi skal finde en ny Parse måde da den melder fejl med 2.
+                Fik det til at virke med first og last. Der var en ID fejl zzzzzzzzzzzzzzz.
+             */
 
 
+            System.out.println(tempFornavn + " " + tempEfternavn);
+            System.out.println(tempCprFirst + "-" + tempCprLast);
+            System.out.println(tempAdr);
 
-            //System.out.println(tempCprFirst + "-" + tempCprLast + "REEE!"+tempFornavn);
-            System.out.println(tempCprFirst+tempFornavn);
+
+            /*
+            System.out.println(tempCprFirst + "-" + tempCprLast);
+
+            */
             return;
         }
 
