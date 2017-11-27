@@ -45,6 +45,7 @@ DB_Statements sqlStatement = new DB_Statements();
     @FXML
     private void handleButtonAction(ActionEvent e) {
         sqlStatement.useDB();
+
         /*NY KUNDE*/
         //Hvis knap Ny kunde bliver klikket, indsætter vi data
         /*linje ned*/
@@ -91,6 +92,7 @@ DB_Statements sqlStatement = new DB_Statements();
         if (e.getSource() == btn_opretDBTing) {
             sqlStatement.createDB();
             sqlStatement.createKundeTable();
+            sqlStatement.insertTestKunder();
         }
         if (e.getSource() == btn_nyKonto){
             System.out.println("Button nykunde virker");

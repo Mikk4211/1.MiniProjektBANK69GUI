@@ -8,17 +8,17 @@ import java.sql.Statement;
 public class DB_Statements {
 
 
-    //    Deklarere statement.
+    //    Declare a Statement
     private static Statement stmt = null;
 
-    //    Deklarer variablet con
+    //    Declare & create a connection
     private static Connection con = DB_Connector.connect();
 
-    //    Deklarer Resultset.
+    //    Declare a result set
     private static ResultSet rs = null;
 
 
-    //    Metode til at oprette database.
+    //    Method to create a new Database
     public void createDB() {
 
 
@@ -42,7 +42,7 @@ public class DB_Statements {
         }
     }
 
-    //    Metode til at bruge databasen.
+    //    method to use a database
     public void useDB() {
 
         //    SQL statement
@@ -87,11 +87,10 @@ public class DB_Statements {
         }
     }
 
-    //    Metode til at oprette kundeTable.
+    //    method to create a table
     public void createKundeTable() {
 
-        //    SQL statement - Laver et table der hedder kundeTable, og 6 columms, fName, lName, cprFirst, cprLast og adress.
-
+        //    SQL statement
         String query = "create table if not exists kundeTable(" +
                 "id int not null auto_increment," +
                 "fName varchar(28), " +
@@ -118,7 +117,7 @@ public class DB_Statements {
         }
     }
 
-    //    Metode til at indsætte data i kundeTable.
+    //    method to insert data
     public void insertNyKunde(String tempFornavn, String tempEfternavn, int tempCprFirst, int tempnyCprLast, String tempAdr) {
 
         //    SQL statement
@@ -132,7 +131,7 @@ public class DB_Statements {
                 "')";
         try {
 
-            //    Opret statement
+            //    create statement
             stmt = con.createStatement();
 
             //    execute statement
@@ -147,7 +146,36 @@ public class DB_Statements {
         }
     }
 
-    //    metode til at læse data fra kundeTable.
+    //    method to insert data
+    public void insertTestKunder() {
+
+        //    SQL statement
+        String query = "insert into kundeTable " +
+                "(fName, lName, cprFirst, cprLast, address) " +
+                "values ('Benjamin', 'Ejrup', 111187, 1234, 'Slotsgade 9 2.tv'), " +
+                "('Benjamin', 'Ejrup', 111187, 1234, 'Vejnavn 1'), " +
+                "('Mads', 'Nielsen', 123456, 1234, 'Vejnavn 2'), " +
+                "('Mathias', 'Bruun', 234567, 1234, 'Vejnavn 3'), " +
+                "('Mikkel', 'Bøgse', 345678, 1234, 'Vejnavn 4'), " +
+                "('Johan', 'Stenboeg', 456789, 1234, 'Vejnavn 5')";
+        try {
+
+            //    create statement
+            stmt = con.createStatement();
+
+            //    execute statement
+            stmt.executeUpdate(query);
+            System.out.println("\n---Ny kunde oprettet---");
+        }
+
+        //    handle sql exceptions
+        catch(SQLException ex) {
+            System.out.println("\n---Ny kunde kunne ikke oprettes.---");
+            ex.printStackTrace();
+        }
+    }
+
+    //    method to read data from table
     public void queryThisTable() {
 
         //    SQL statement
