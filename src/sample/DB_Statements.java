@@ -87,6 +87,27 @@ public class DB_Statements {
         }
     }
 
+    public void dropTable() {
+
+        //    SQL statement
+        String query = "drop table kundeTable";
+        try {
+
+            //    create statement
+            stmt = con.createStatement();
+
+            //    execute statement
+            stmt.executeUpdate(query);
+            System.out.println("\n ---kundetable table dropped---");
+        }
+
+        //    handle sql exceptions
+        catch (SQLException ex) {
+            System.out.println("\n ---statement did not execute (drop database)---");
+            ex.printStackTrace();
+        }
+    }
+
     //    method to create a table
     public void createKundeTable() {
 
