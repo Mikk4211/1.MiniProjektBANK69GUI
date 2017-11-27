@@ -94,6 +94,7 @@ DB_Statements sqlStatement = new DB_Statements();
         /*Knap der opretter db og table */
         if (e.getSource() == btn_opretDBTing) {
             sqlStatement.createDB();
+            sqlStatement.dropTable();
             sqlStatement.createKundeTable();
             sqlStatement.insertTestKunder();
         }
