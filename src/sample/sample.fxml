@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
@@ -102,6 +102,7 @@
                 </TabPane>
                 <Text layoutX="530.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" />
                 <Text layoutX="530.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank of 69" />
+            <Button fx:id="btn_opretDBTing" onAction="#handleButtonAction" layoutX="490.0" layoutY="330.0" mnemonicParsing="false" text="Opret DB+table" />
             </children></AnchorPane>
     </items>
 </SplitPane>

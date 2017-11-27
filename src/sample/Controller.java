@@ -34,6 +34,9 @@ DB_Statements sqlStatement = new DB_Statements();
     private TextField input_nyAdr;
     @FXML
     private Label lbl;
+    @FXML
+    private Button btn_opretDBTing;
+
 
     public int tempCprFirst = 0, tempCprLast = 0;
     String tempFornavn, tempEfternavn, tempAdr;
@@ -83,8 +86,11 @@ DB_Statements sqlStatement = new DB_Statements();
             sqlStatement.insertNyKunde(tempFornavn,tempEfternavn,tempCprFirst,tempCprLast,tempAdr);
 
         }
+        if (e.getSource() == btn_opretDBTing) {
+            sqlStatement.createDB();
+            sqlStatement.createKundeTable();
+        }
 
-
-    }
+        }
 
 }
