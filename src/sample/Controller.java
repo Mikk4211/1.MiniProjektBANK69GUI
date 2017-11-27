@@ -9,7 +9,7 @@ import javafx.scene.*;
 import javafx.scene.control.*;
 /*
 * I Sample.fxml, når man laver en ny button skal du hardcode onAction="#handleButtonAction" ind i, da intellij+scenebuilder er skrald.
-* - Maaaaaaads
+* - Mads
 * */
 
 
