@@ -15,7 +15,7 @@ import javafx.scene.control.*;
 
 
 public class Controller {
-//DB_Statements sqlStatement = new DB_Statements();
+DB_Statements sqlStatement = new DB_Statements();
 
 
     @FXML
@@ -41,29 +41,21 @@ public class Controller {
 
     @FXML
     private void handleButtonAction(ActionEvent e) {
-        //e tells what button was clicked
+        /*NY KUNDE*/
+        //Hvis knap Ny kunde bliver klikket, indsætter vi data
         if (e.getSource() == btn_nyKunde) {
-            //giver fornavn værdien:
+            //Henter fornavn, efternavn og adresse:
             tempFornavn = input_nyFornavn.getText();
             tempEfternavn = input_nyEfternavn.getText();
             tempAdr = input_nyAdr.getText();
 
-            /*
-
-
-            */
-
             //Giver cprFirst en værdi:
-            /*
-            Man kan af en eller anden grund ikke gøre sådan:
-            //tempCprFirst = Integer.parseInt( input_nyCprFirst.getText());
-            //tempCprLast = Integer.parseInt(input_nyCprLast.getText());
-            man skal først hente den til en variable og derefter parse den.
-             */
             String tempCprFirstParser = input_nyCprFirst.getText(); // Virker såfremt det er for sig selv.
             tempCprFirst = Integer.parseInt(tempCprFirstParser);
             String tempCprLastParser = input_nyCprLast.getText();
             tempCprLast = Integer.parseInt(tempCprLastParser);
+
+
 
             /* Lader til man ikke bare kan Parse begge 2. OBS!!
             String tempCprLastParser = input_nyCprLast.getText();
@@ -87,7 +79,8 @@ public class Controller {
             System.out.println(tempCprFirst + "-" + tempCprLast);
 
             */
-            return;
+            sqlStatement.insertNyKunde(tempFornavn,tempEfternavn,tempCprFirst,tempCprLast,tempAdr);
+
         }
 
 
