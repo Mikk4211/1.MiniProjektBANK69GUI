@@ -173,7 +173,7 @@ public class DB_Statements {
         //    SQL statement
         String query = "insert into kundeTable " +
                 "(fName, lName, cprFirst, cprLast, address) " +
-                "values ('Benjamin', 'Ejrup', 111187, 1234, 'Slotsgade 9 2.tv'), " +
+                "values ('Test', 'Navn', 987654, 1234, 'Slotsgade 9 2.tv'), " +
                 "('Benjamin', 'Ejrup', 111187, 1234, 'Vejnavn 1'), " +
                 "('Mads', 'Nielsen', 123456, 1234, 'Vejnavn 2'), " +
                 "('Mathias', 'Bruun', 234567, 1234, 'Vejnavn 3'), " +
