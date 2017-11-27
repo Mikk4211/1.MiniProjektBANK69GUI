@@ -8,17 +8,17 @@ import java.sql.Statement;
 public class DB_Statements {
 
 
-    //    Declare a Statement
+    //    Deklarere statement.
     private static Statement stmt = null;
 
-    //    Declare & create a connection
+    //    Deklarer variablet con
     private static Connection con = DB_Connector.connect();
 
-    //    Declare a result set
+    //    Deklarer Resultset.
     private static ResultSet rs = null;
 
 
-    //    Method to create a new Database
+    //    Metode til at oprette database.
     public void createDB() {
 
 
@@ -42,7 +42,7 @@ public class DB_Statements {
         }
     }
 
-    //    method to use a database
+    //    Metode til at bruge databasen.
     public void useDB() {
 
         //    SQL statement
@@ -87,18 +87,19 @@ public class DB_Statements {
         }
     }
 
-    //    method to create a table
+    //    Metode til at oprette kundeTable.
     public void createKundeTable() {
 
-        //    SQL statement
+        //    SQL statement - Laver et table der hedder kundeTable, og 6 columms, fName, lName, cprFirst, cprLast og adress.
+
         String query = "create table if not exists kundeTable(" +
-                "p_id int not null auto_increment," +
+                "id int not null auto_increment," +
                 "fName varchar(28), " +
                 "lName varchar(28), " +
                 "cprFirst int(6), " +
                 "cprLast int(4), " +
                 "address varchar(28), " +
-                "primary key(p_id)" +
+                "primary key(id)" +
                 ")";
         try {
 
@@ -117,7 +118,7 @@ public class DB_Statements {
         }
     }
 
-    //    method to insert data
+    //    Metode til at indsætte data i kundeTable.
     public void insertNyKunde(String tempFornavn, String tempEfternavn, int tempCprFirst, int tempnyCprLast, String tempAdr) {
 
         //    SQL statement
@@ -131,7 +132,7 @@ public class DB_Statements {
                 "')";
         try {
 
-            //    create statement
+            //    Opret statement
             stmt = con.createStatement();
 
             //    execute statement
@@ -146,7 +147,7 @@ public class DB_Statements {
         }
     }
 
-    //    method to read data from table
+    //    metode til at læse data fra kundeTable.
     public void queryThisTable() {
 
         //    SQL statement
