@@ -86,10 +86,17 @@ DB_Statements sqlStatement = new DB_Statements();
             sqlStatement.insertNyKunde(tempFornavn,tempEfternavn,tempCprFirst,tempCprLast,tempAdr);
 
         }
+        /*Knap der opretter db og table */
         if (e.getSource() == btn_opretDBTing) {
             sqlStatement.createDB();
             sqlStatement.createKundeTable();
         }
+        if (e.getSource() == btn_nyKonto){
+            System.out.println("Button nykunde virker");
+        }
+        //if (e.getSource() == )
+
+
 
         }
 

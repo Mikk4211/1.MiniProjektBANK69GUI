@@ -45,13 +45,13 @@
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                     <children>
                                         <TextField id="OpretnykundeNavnFor" fx:id="input_nyFornavn" layoutX="14.0" layoutY="37.0" prefHeight="25.0" prefWidth="200.0" promptText="Fornavn" />
-                                        <TextField id="OpretnykundeNavnEfter" fx:id="input_nyEfternavn" layoutX="14.0" layoutY="82.0" prefHeight="25.0" prefWidth="200.0" promptText="Efternavn" />
-                                        <TextField id="OpretnykundeCPR" fx:id="input_nyCprFirst" layoutX="14.0" layoutY="129.0" prefHeight="38.0" prefWidth="121.0" promptText="CPR" />
-                                        <TextField fx:id="input_nyCprLast" layoutX="145.0" layoutY="129.0" prefHeight="38.0" prefWidth="69.0" promptText="CPR" />
-                                        <TextField id="OpretnykundeAdresse" fx:id="input_nyAdr" layoutX="14.0" layoutY="175.0" prefHeight="25.0" prefWidth="200.0" promptText="Adresse" />
+                                        <TextField id="OpretnykundeNavnEfter" fx:id="input_nyEfternavn" layoutX="14.0" layoutY="75.0" prefHeight="25.0" prefWidth="200.0" promptText="Efternavn" />
+                                        <TextField id="OpretnykundeCPR" fx:id="input_nyCprFirst" layoutX="14.0" layoutY="115.0" prefHeight="38.0" prefWidth="121.0" promptText="CPR" />
+                                        <TextField fx:id="input_nyCprLast" layoutX="145.0" layoutY="115.0" prefHeight="38.0" prefWidth="69.0" promptText="CPR" />
+                                        <TextField id="OpretnykundeAdresse" fx:id="input_nyAdr" layoutX="14.0" layoutY="166.0" prefHeight="25.0" prefWidth="200.0" promptText="Adresse" />
                                         <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Opret ny kunde:" />
-                                        <Button fx:id="btn_nyKunde" layoutX="15.0" layoutY="219.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Opret kunde" />
-                                        <Label layoutX="137.0" layoutY="139.0" text="-" />
+                                        <Button fx:id="btn_nyKunde" layoutX="15.0" layoutY="201.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Opret kunde" />
+                                        <Label layoutX="137.0" layoutY="124.0" text="-" />
                                     </children>
                                 </AnchorPane>
                             </content>
@@ -66,9 +66,9 @@
                                                 <MenuItem mnemonicParsing="false" text="Action 2" />
                                             </items>
                                         </MenuButton>
-                                        <TextArea layoutX="14.0" layoutY="49.0" prefHeight="25.0" prefWidth="200.0" promptText="Konto Navn" />
-                                        <TextArea layoutX="14.0" layoutY="96.0" prefHeight="25.0" prefWidth="200.0" promptText="Korttype" />
-                                        <Button layoutX="14.0" layoutY="142.0" mnemonicParsing="false" text="Opret konto" />
+                                        <TextField fx:id="input_kontoNavn" layoutX="14.0" layoutY="49.0" prefHeight="25.0" prefWidth="200.0" promptText="Konto Navn" />
+                                        <TextField fx:id="input_kortType" layoutX="14.0" layoutY="96.0" prefHeight="25.0" prefWidth="200.0" promptText="Korttype" />
+                                        <Button fx:id="btn_nyKonto" layoutX="14.0" layoutY="142.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Opret konto" />
                                     </children>
                                 </AnchorPane>
                             </content>
@@ -102,7 +102,7 @@
                 </TabPane>
                 <Text layoutX="530.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" />
                 <Text layoutX="530.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank of 69" />
-            <Button fx:id="btn_opretDBTing" onAction="#handleButtonAction" layoutX="490.0" layoutY="330.0" mnemonicParsing="false" text="Opret DB+table" />
+            <Button fx:id="btn_opretDBTing" layoutX="490.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Opret DB+table" />
             </children></AnchorPane>
     </items>
 </SplitPane>

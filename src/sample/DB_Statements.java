@@ -92,13 +92,13 @@ public class DB_Statements {
 
         //    SQL statement
         String query = "create table if not exists kundeTable(" +
-                "id int not null auto_increment," +
+                "p_id int not null auto_increment," +
                 "fName varchar(28), " +
                 "lName varchar(28), " +
                 "cprFirst int(6), " +
                 "cprLast int(4), " +
                 "address varchar(28), " +
-                "primary key(id)" +
+                "primary key(p_id)" +
                 ")";
         try {
 
