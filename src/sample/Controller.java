@@ -47,6 +47,7 @@ DB_Statements sqlStatement = new DB_Statements();
         sqlStatement.useDB();
         /*NY KUNDE*/
         //Hvis knap Ny kunde bliver klikket, indsætter vi data
+        /*linje ned*/
         if (e.getSource() == btn_nyKunde) {
             //Henter fornavn, efternavn og adresse:
             tempFornavn = input_nyFornavn.getText();
@@ -94,7 +95,6 @@ DB_Statements sqlStatement = new DB_Statements();
         if (e.getSource() == btn_nyKonto){
             System.out.println("Button nykunde virker");
         }
-        //if (e.getSource() == )
 
 
 
