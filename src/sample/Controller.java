@@ -41,6 +41,7 @@ DB_Statements sqlStatement = new DB_Statements();
 
     @FXML
     private void handleButtonAction(ActionEvent e) {
+        sqlStatement.useDB();
         /*NY KUNDE*/
         //Hvis knap Ny kunde bliver klikket, indsætter vi data
         if (e.getSource() == btn_nyKunde) {
