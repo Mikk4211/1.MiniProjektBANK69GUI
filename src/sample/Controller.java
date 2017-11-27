@@ -92,6 +92,7 @@ DB_Statements sqlStatement = new DB_Statements();
             sqlStatement.createDB();
             sqlStatement.dropTable();
             sqlStatement.createKundeTable();
+            sqlStatement.createKontoTable();
             sqlStatement.insertTestKunder();
         }
         if (e.getSource() == btn_nyKonto){

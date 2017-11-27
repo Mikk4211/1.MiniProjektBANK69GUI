@@ -108,10 +108,37 @@ public class DB_Statements {
         }
     }
 
-    //    method to create a table
-    public void createKundeTable() {
+    //    method to create a konto table
+    public void createKontoTable() {
 
         //    SQL statement
+        String query = "create table if not exists kontoTable(" +
+                "p_id int not null auto_increment," +
+                "lonkonto DOUBLE, " +
+                "opsparing DOUBLE, " +
+                "primary key(p_id)" +
+                ")";
+        try {
+
+            //create statement
+            stmt = con.createStatement();
+
+            //execute statement
+            stmt.executeUpdate(query);
+            System.out.println("\n---Konto Table oprettet---");
+        }
+
+        //handle sql exceptions
+        catch(SQLException ex) {
+            System.out.println("\n---Statement did not execute (kontotable)---");
+            ex.printStackTrace();
+        }
+    }
+
+    //method to create a table
+    public void createKundeTable() {
+
+        //SQL statement
         String query = "create table if not exists kundeTable(" +
                 "id int not null auto_increment," +
                 "fName varchar(28), " +
@@ -123,7 +150,7 @@ public class DB_Statements {
                 ")";
         try {
 
-            //    create statement
+            //create statement
             stmt = con.createStatement();
 
             //    execute statement
@@ -137,6 +164,7 @@ public class DB_Statements {
             ex.printStackTrace();
         }
     }
+
 
     //    method to insert data
     public void insertNyKunde(String tempFornavn, String tempEfternavn, int tempCprFirst, int tempnyCprLast, String tempAdr) {
