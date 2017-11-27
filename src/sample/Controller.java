@@ -10,8 +10,8 @@ import javafx.scene.control.*;
 /*
 * I Sample.fxml, når man laver en ny button skal du hardcode onAction="#handleButtonAction" ind i, da intellij+scenebuilder er skrald.
 * - Mads
-* tester
-*/
+* jknwreæt
+* */
 
 
 
@@ -95,7 +95,6 @@ DB_Statements sqlStatement = new DB_Statements();
             sqlStatement.createKundeTable();
             sqlStatement.insertTestKunder();
         }
-        /*Knap der opretter nyKonto*/
         if (e.getSource() == btn_nyKonto){
             System.out.println("Button nykunde virker");
         }
