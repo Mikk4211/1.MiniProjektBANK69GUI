@@ -101,6 +101,7 @@ public class DB_Statements {
             System.out.println("\n ---kundetable table dropped---");
         }
 
+
         //    handle sql exceptions
         catch (SQLException ex) {
             System.out.println("\n ---statement did not execute (drop database)---");
