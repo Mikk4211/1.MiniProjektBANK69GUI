@@ -360,10 +360,8 @@ public class DB_Statements {
                 //
                 stmt=con.createStatement();
 
+                //rs = stmt.executeUpdate(query2);
                 //
-                stmt.executeUpdate(query2);
-
-
 
             }
             catch (SQLException ex){
