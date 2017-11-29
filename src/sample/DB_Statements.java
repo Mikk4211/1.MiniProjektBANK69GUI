@@ -317,7 +317,8 @@ public class DB_Statements {
     }
     /*Methode til at overfører beløb fra din konto til anden konto.*/
     //char kontotype: 'l' for lønkonto, og 'o' for opsparing.
-    public void overfor(int p_id, char kontotype, double belob, int kontonr , int regnr ){
+    //Kontonr = modtagers p_id
+    public void overfor(int p_id, char kontotype, double belob, int kontonr ){
         //
         String query = "select opsparing from kontotable where p_id = "+p_id+" ";
         //

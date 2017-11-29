@@ -112,8 +112,8 @@ DB_Statements sqlStatement = new DB_Statements();
             double tempOverforBelob = Double.parseDouble(tempBelobParser);
 
             //
-            String tempRegParser = input_overfor_regnr.getText();
-            int tempRegNr = Integer.parseInt(tempRegParser);
+            /*String tempRegParser = input_overfor_regnr.getText();
+            int tempRegNr = Integer.parseInt(tempRegParser);*/
 
             //
             String tempKontonrParser = input_overfor_kontonr.getText();
@@ -126,7 +126,7 @@ DB_Statements sqlStatement = new DB_Statements();
             int p_id = 1;
 
 
-            sqlStatement.overfor(p_id,tempKontoValg,tempOverforBelob,tempKontoNr,tempRegNr);
+            sqlStatement.overfor(p_id,tempKontoValg,tempOverforBelob,tempKontoNr);
         }
 
 
