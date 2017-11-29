@@ -353,15 +353,15 @@ public class DB_Statements {
             System.out.println(restSum);
             //
 
-
+            //
             String query2 = "UPDATE kontotable SET "+kontotypen +" = "+restSum +" where p_id = "+p_id+" ";
 
             try{
                 //
                 stmt=con.createStatement();
-
-                //rs = stmt.executeUpdate(query2);
                 //
+                stmt.executeUpdate(query2);
+
 
             }
             catch (SQLException ex){
