@@ -53,6 +53,8 @@ DB_Statements sqlStatement = new DB_Statements();
     String tempFornavn, tempEfternavn, tempAdr;
     char symbol;
 
+
+
     @FXML
     private void handleButtonAction(ActionEvent e) {
         sqlStatement.useDB();
@@ -113,7 +115,19 @@ DB_Statements sqlStatement = new DB_Statements();
 
         /*Knap der overfører*/
         if (e.getSource()== btn_overfor){
+            //
+            String tempBelobParser = input_overfor_belob.getText();
+            double tempOverforBelob = Double.parseDouble(tempBelobParser);
 
+            //
+            String tempRegParser = input_overfor_regnr.getText();
+            double tempRegNr = Double.parseDouble(tempRegParser);
+
+            //
+            String tempKontonrParser = input_overfor_kontonr.getText();
+            double tempKontoNr = Double.parseDouble(tempKontonrParser);
+
+            //sqlStatement.overfor(1,'l', );
 
         }
 
