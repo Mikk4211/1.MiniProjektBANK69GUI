@@ -238,16 +238,46 @@ public class DB_Statements {
 
             //    execute statement
             stmt.executeUpdate(query);
-            System.out.println("\n---Ny kunde oprettet---");
+            System.out.println("\n---Nye testkunder oprettet---");
         }
 
         //    handle sql exceptions
         catch(SQLException ex) {
-            System.out.println("\n---Ny kunde kunne ikke oprettes.---");
+            System.out.println("\n---Nye testkunder kunne ikke oprettes---");
             ex.printStackTrace();
         }
     }
 
+
+    //    method to insert data
+    public void insertTestKonto() {
+
+        //    SQL statement
+        String query = "insert into kontoTable " +
+                "(lonkonto, opsparing, lonRente, opsrente, lonOT, opsOT) " +
+                "values "+
+                "(10000,50000,0,5,10,1000), " +
+                "(13000, 54000, 0, 4, 5120,5200), " +
+                "(1000000, 3700, 0, 5, 1233,2000), " +
+                "(10, 30, 0, 1, 1233,2000), " +
+                "(1234, 3700, 0, 2, 3500,2000), " +
+                "(5000,1550,0,1,500,5000)";
+        try {
+
+            //    create statement
+            stmt = con.createStatement();
+
+            //    execute statement
+            stmt.executeUpdate(query);
+            System.out.println("\n---Nye kontoer oprettet---");
+        }
+
+        //    handle sql exceptions
+        catch(SQLException ex) {
+            System.out.println("\n---Nye kontoer kunne ikke oprettes.---");
+            ex.printStackTrace();
+        }
+    }
     //    method to read data from table
     public void queryThisTable() {
 

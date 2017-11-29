@@ -78,18 +78,6 @@ DB_Statements sqlStatement = new DB_Statements();
 
 
 
-            /* Lader til man ikke bare kan Parse begge 2. OBS!!
-            String tempCprLastParser = input_nyCprLast.getText();
-            tempCprLast = Integer.parseInt(tempCprLastParser);
-            */
-
-            /*  Den virker såfremt der skrives noget i cpr first. Men der kan ikke skrives noget i fornavn, uden der skrives i cpr first, så melder den fejl, da den forventer der er noget.
-                Virker også fint med Fornavn, efternavn; såfremt der skrives noget i cpr first. Men virker stadig ikke hvis man laver ny parse til cpr last.
-                Fornavn, efternavn, adr + cprFirst virker.
-                Alle kombinationer virker såfremt cprLast ikke med. Vi skal finde en ny Parse måde da den melder fejl med 2.
-                Fik det til at virke med first og last. Der var en ID fejl zzzzzzzzzzzzzzz.
-             */
-
 
             System.out.println(tempFornavn + " " + tempEfternavn);
             System.out.println(tempCprFirst + "-" + tempCprLast);
@@ -111,6 +99,7 @@ DB_Statements sqlStatement = new DB_Statements();
             sqlStatement.createKundeTable();
             sqlStatement.createKontoTable();
             sqlStatement.insertTestKunder();
+            sqlStatement.insertTestKonto();
         }
         if (e.getSource() == btn_nyKonto){
             System.out.println("Button nykunde virker");
@@ -138,6 +127,7 @@ DB_Statements sqlStatement = new DB_Statements();
 
 
             sqlStatement.overfor(p_id,tempKontoValg,tempOverforBelob,tempKontoNr,tempRegNr);
+
 
         }
 
