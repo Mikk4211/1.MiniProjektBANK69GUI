@@ -351,7 +351,6 @@ public class DB_Statements {
             //
             double restSum = kontobeløb-belob;
             System.out.println(restSum);
-            //
 
             //
             String query2 = "UPDATE kontotable SET "+kontotypen +" = "+restSum +" where p_id = "+p_id+" ";
@@ -362,6 +361,21 @@ public class DB_Statements {
                 //
                 stmt.executeUpdate(query2);
 
+
+                //IKKKE FÆRDIG!  ! !  !
+                String query3 = "SELECT lonkonto FROM kontotable where p_id ="+p_id+" ";
+                try {
+                    stmt =con.createStatement();
+                    rs= stmt.executeQuery(query3);
+                    double modtagerKontoBeløb = 0.0;
+                    while (rs.next()) {
+                        modtagerKontoBeløb = rs.getInt(1);
+                    }
+                    System.out.println(modtagerKontoBeløb);
+                }catch (SQLException exs){
+                    exs.printStackTrace();
+                }
+                //String query4 = "UPDATE kontotable set lonkonto = "
 
             }
             catch (SQLException ex){
@@ -382,7 +396,6 @@ public class DB_Statements {
 
     //Metoder til at hente værdier fra kontotable
     //Vælger lonkonto hvor p_id er 1
-
     public void lonkontoværdier(int p_id) {
         String query = "select lonkonto, lonRente, lonOT from kontotable WHERE p_id = " + p_id + " ";
         try {
