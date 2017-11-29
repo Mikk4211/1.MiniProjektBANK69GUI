@@ -317,8 +317,7 @@ public class DB_Statements {
     }
     /*Methode til at overfører beløb fra din konto til anden konto.*/
     //char kontotype: 'l' for lønkonto, og 'o' for opsparing.
-    //Kontonr = modtagers p_id
-    public void overfor(int p_id, char kontotype, double belob, int kontonr ){
+    public void overfor(int p_id, char kontotype, double belob, int kontonr , int regnr ){
         //
         String query = "select opsparing from kontotable where p_id = "+p_id+" ";
         //
@@ -379,7 +378,46 @@ public class DB_Statements {
         }
 
 
+    }
+    //Metoder til at hente værdier fra kontotable
+    //Vælger lonkonto hvor p_id er 1
 
+    public void lonkontoværdier(int p_id) {
+        String query = "select lonkonto, lonRente, lonOT from kontotable WHERE p_id = " + p_id + " ";
+        try {
+            //Connection
+            stmt = con.createStatement();
+            //Execute query
+            rs = stmt.executeQuery(query);
+            System.out.println("lonkonto \t lonRente \t lonOT");
+            while (rs.next()) {
+                String lonkonto = rs.getString("lonkonto"); //returns p_id
+                String lonRente = rs.getString("lonRente"); //returns p_id
+                String lonOT = rs.getString("lonOT"); //returns p_id
+                System.out.println("\t" + lonkonto + "\t\t" + lonRente + "\t\t\t" + lonOT);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
+    public void opsparingskontoværdier(int p_id) {
+        String query = "select opsparing, opsRente, opsOT from kontotable WHERE p_id = " + p_id + " ";
+        try {
+            //Connection
+            stmt = con.createStatement();
+            //Execute query
+            rs = stmt.executeQuery(query);
+            System.out.println("opsparing \t opsRente \t opsOT");
+            while (rs.next()) {
+                String opsparing = rs.getString("opsparing"); //returns p_id
+                String opsRente = rs.getString("opsRente"); //returns p_id
+                String opsOT = rs.getString("opsOT"); //returns p_id
+                System.out.println("\t" + opsparing + "\t\t" + opsRente + "\t\t\t" + opsOT);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+    }
 }
