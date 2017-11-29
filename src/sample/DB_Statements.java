@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.*;
+import java.sql.ResultSet;
 
 public class DB_Statements {
 
@@ -16,6 +18,8 @@ public class DB_Statements {
 
     //    Declare a result set
     private static ResultSet rs = null;
+
+
 
 
     //    Method to create a new Database
@@ -314,16 +318,23 @@ public class DB_Statements {
     /*Methode til at overfører beløb fra din konto til anden konto.*/
     //char kontotype: 'l' for lønkonto, og 'o' for opsparing.
     public void overfor(int p_id, char kontotype, double belob, int kontonr , int regnr ){
+        //
         String query = "select opsparing from kontotable where p_id = "+p_id+" ";
+        //
+        String kontotypen= "opsparing";
+        //
         if (kontotype=='o'){
-            //sql statement
-            query = "select opsparing from kontotable where p_id = "+p_id+" ";
+            //
+            kontotypen = "opsparing";
         } else if(kontotype=='l'){
-            //sql Statement
-            query = "select lonkonto from kontotable where p_id = "+p_id+" ";
+            //
+            kontotypen = "lonkonto";
         }else{
+
             System.out.println("FEJL, forkert kontotype");
         }
+        query = "select "+kontotypen+" from kontotable where p_id = "+p_id+" ";
+
 
         try{
             //create statement
@@ -331,16 +342,41 @@ public class DB_Statements {
 
             //execute statement
             rs = stmt.executeQuery(query);
-            int kontobeløb = rs.getInt(1);
+
+            double kontobeløb =0.0;
+            while(rs.next()) {
+                kontobeløb = rs.getInt(1);
+            }
+            System.out.println(kontobeløb);
+            //
+            double restSum = kontobeløb-belob;
+            System.out.println(restSum);
+            //
 
 
+            String query2 = "UPDATE kontotable SET "+kontotypen +" = "+restSum +" where p_id = "+p_id+" ";
+
+            try{
+                //
+                stmt=con.createStatement();
+
+                //rs = stmt.executeUpdate(query2);
+                //
+
+            }
+            catch (SQLException ex){
+                ex.printStackTrace();
+                System.out.println("---Fejl i pengetræk---");
+
+            }
 
 
 
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("---Fejl i overførelse---");
+            System.out.println("---Fejl i Overførelse---");
         }
+
 
 
     }
