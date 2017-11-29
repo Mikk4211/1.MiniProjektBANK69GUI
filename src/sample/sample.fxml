@@ -27,15 +27,11 @@
                                         <Text layoutX="250.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beløb:" />
                                         <Text layoutX="250.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Renteindsats:" />
                                         <Text layoutX="250.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tilladt overtræk:" />
-                                        <MenuButton layoutX="251.0" layoutY="60.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="184.0" text="Vælg konto">
-                                            <items>
-                                                <MenuItem mnemonicParsing="false" text="Action 1" />
-                                                <MenuItem mnemonicParsing="false" text="Action 2" />
-                                            </items>
-                                        </MenuButton>
                                         <Label layoutX="289.0" layoutY="112.0" prefHeight="17.0" prefWidth="146.0" text="Danske kroner" />
                                         <Label layoutX="326.0" layoutY="143.0" prefHeight="17.0" prefWidth="109.0" text="Procent" />
                                         <Label layoutX="342.0" layoutY="172.0" prefHeight="17.0" prefWidth="90.0" text="Danske kroner" />
+                              <Button fx:id="btn_lønkonto" layoutX="249.0" layoutY="67.0" mnemonicParsing="false" text="Lønkonto" />
+                              <Button fx:id="btn_opsparingskonto" layoutX="327.0" layoutY="67.0" mnemonicParsing="false" text="Opsparingskonto" />
                                     </children>
                                 </AnchorPane>
                             </content>
@@ -77,19 +73,15 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                     <children>
-                                        <MenuButton layoutX="14.0" layoutY="34.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="184.0" text="Vælg konto">
-                                            <items>
-                                                <MenuItem mnemonicParsing="false" text="Action 1" />
-                                                <MenuItem mnemonicParsing="false" text="Action 2" />
-                                            </items>
-                                        </MenuButton>
                                         <Text layoutX="14.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Indestående beløb:" />
-                                        <Label layoutX="122.0" layoutY="71.0" text="Danske kroner" />
+                                        <Label fx:id="lbl_konto_beløb" layoutX="122.0" layoutY="71.0" text="Danske kroner" />
                                         <Text layoutX="14.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rente:" />
-                                        <Label layoutX="51.0" layoutY="92.0" text="Procent" />
+                                        <Label fx:id="lbl_konto_renteIndsats" layoutX="51.0" layoutY="92.0" text="Procent" />
                                         <Text layoutX="14.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tilladt overtræk:" />
-                                        <Label layoutX="108.0" layoutY="113.0" text="Danske kroner" />
+                                        <Label fx:id="lbl_konto_tilladtOvertræk" layoutX="108.0" layoutY="113.0" text="Danske kroner" />
                               <Label layoutX="17.0" layoutY="14.0" text="Velkommen bruger" />
+                              <Button fx:id="btn_konto_lonkonto" onAction="#handleButtonAction" layoutX="14.0" layoutY="38.0" mnemonicParsing="false" text="Lønkonto" />
+                              <Button fx:id="btn_konto_opsparingskonto" onAction="#handleButtonAction" layoutX="107.0" layoutY="38.0" mnemonicParsing="false" text="Opsparingskonto" />
                                     </children>
                                 </AnchorPane>
                             </content>

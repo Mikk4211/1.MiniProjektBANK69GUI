@@ -48,6 +48,13 @@ DB_Statements sqlStatement = new DB_Statements();
     private TextField input_overfor_regnr;
     @FXML
     private TextField input_overfor_valgkonto;
+    /*Konto*/
+    @FXML
+    private Button btn_konto_lonkonto;
+    @FXML
+    private Button btn_konto_opsparingskonto;
+    @FXML
+    private Label
 
 
 
@@ -60,7 +67,7 @@ DB_Statements sqlStatement = new DB_Statements();
     @FXML
     private void handleButtonAction(ActionEvent e) {
         sqlStatement.useDB();
-        sqlStatement.lonkontoværdier(1);
+
 
         /*NY KUNDE*/
         //Hvis knap Ny kunde bliver klikket, indsætter vi data
@@ -130,7 +137,16 @@ DB_Statements sqlStatement = new DB_Statements();
             sqlStatement.overfor(p_id,tempKontoValg,tempOverforBelob,tempKontoNr);
         }
 
+        if (e.getSource()==btn_konto_lonkonto){
+            System.out.println("lønkontoknap virker");
+
+
 
         }
+        if (e.getSource()==btn_konto_opsparingskonto)
+            System.out.println("Opsparingskontoknap virker");
+
+        }
+
 
 }
