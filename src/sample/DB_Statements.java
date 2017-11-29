@@ -87,7 +87,7 @@ public class DB_Statements {
         }
     }
 
-    public void dropTable() {
+    public void dropTableKundeTable() {
 
         //    SQL statement
         String query = "drop table kundeTable";
@@ -101,13 +101,33 @@ public class DB_Statements {
             System.out.println("\n ---kundetable table dropped---");
         }
 
+
         //    handle sql exceptions
         catch (SQLException ex) {
             System.out.println("\n ---statement did not execute (drop database)---");
             ex.printStackTrace();
         }
     }
+    public void dropTableKontoTable() {
 
+        //    SQL statement
+        String query = "drop table kontoTable";
+        try {
+
+            //    create statement
+            stmt = con.createStatement();
+
+            //    execute statement
+            stmt.executeUpdate(query);
+            System.out.println("\n ---kontotable table dropped---");
+        }
+
+        //    handle sql exceptions
+        catch (SQLException ex) {
+            System.out.println("\n ---statement did not execute (drop database)---");
+            ex.printStackTrace();
+        }
+    }
     //    method to create a konto table
     public void createKontoTable() {
 
@@ -116,6 +136,10 @@ public class DB_Statements {
                 "p_id int not null auto_increment," +
                 "lonkonto DOUBLE, " +
                 "opsparing DOUBLE, " +
+                "lonRente DOUBLE, " +
+                "opsRente DOUBLE, " +
+                "lonOT INT, " +
+                "opsOT INT, " +
                 "primary key(p_id)" +
                 ")";
         try {
