@@ -46,6 +46,8 @@ DB_Statements sqlStatement = new DB_Statements();
     private TextField input_overfor_kontonr;
     @FXML
     private TextField input_overfor_regnr;
+    @FXML
+    private TextField input_overfor_valgkonto;
 
 
 
@@ -122,13 +124,20 @@ DB_Statements sqlStatement = new DB_Statements();
 
             //
             String tempRegParser = input_overfor_regnr.getText();
-            double tempRegNr = Double.parseDouble(tempRegParser);
+            int tempRegNr = Integer.parseInt(tempRegParser);
 
             //
             String tempKontonrParser = input_overfor_kontonr.getText();
-            double tempKontoNr = Double.parseDouble(tempKontonrParser);
+            int tempKontoNr = Integer.parseInt(tempKontonrParser);
 
-            //sqlStatement.overfor(1,'l', );
+            //
+            char tempKontoValg = input_overfor_valgkonto.getText().charAt(0);
+
+            //
+            int p_id = 1;
+
+
+            sqlStatement.overfor(p_id,tempKontoValg,tempOverforBelob,tempKontoNr,tempRegNr);
 
         }
 
