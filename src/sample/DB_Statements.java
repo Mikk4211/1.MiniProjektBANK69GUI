@@ -260,7 +260,8 @@ public class DB_Statements {
     /*Methode til at overfører beløb fra din konto til anden konto.*/
     //char kontotype: 'l' for lønkonto, og 'o' for opsparing.
     public void overfor(int p_id, char kontotype, double belob, int kontonr , int regnr ){
-
+        //sql statement
+        //String query =
 
     }
 
