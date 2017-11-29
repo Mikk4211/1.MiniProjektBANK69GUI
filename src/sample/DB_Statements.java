@@ -20,11 +20,8 @@ public class DB_Statements {
     private static ResultSet rs = null;
 
 
-
-
     //    Method to create a new Database
     public void createDB() {
-
 
 
         //    SQL statement
@@ -40,7 +37,7 @@ public class DB_Statements {
         }
 
         //    handle sql exceptions
-        catch(SQLException ex) {
+        catch (SQLException ex) {
             System.out.println("\n ---statement did not execute (create database)---");
             ex.printStackTrace();
         }
@@ -62,7 +59,7 @@ public class DB_Statements {
         }
 
         //    handle sql exceptions
-        catch(SQLException ex) {
+        catch (SQLException ex) {
             System.out.println("\n---Statement did not execute (Use database)---");
             ex.printStackTrace();
         }
@@ -112,6 +109,7 @@ public class DB_Statements {
             ex.printStackTrace();
         }
     }
+
     public void dropTableKontoTable() {
 
         //    SQL statement
@@ -132,6 +130,7 @@ public class DB_Statements {
             ex.printStackTrace();
         }
     }
+
     //    method to create a konto table
     public void createKontoTable() {
 
@@ -157,7 +156,7 @@ public class DB_Statements {
         }
 
         //handle sql exceptions
-        catch(SQLException ex) {
+        catch (SQLException ex) {
             System.out.println("\n---Statement did not execute (kontotable)---");
             ex.printStackTrace();
         }
@@ -187,7 +186,7 @@ public class DB_Statements {
         }
 
         //    handle sql exceptions
-        catch(SQLException ex) {
+        catch (SQLException ex) {
             System.out.println("\n---Statement did not execute (create table)---");
             ex.printStackTrace();
         }
@@ -200,10 +199,10 @@ public class DB_Statements {
         //    SQL statement
         String query = "INSERT INTO kundeTable " +
                 "(fName, lName, cprFirst, cprLast,  address) VALUES ('" +
-                tempFornavn  +"', '"+
-                tempEfternavn +"', "+
-                tempCprFirst +", "+
-                tempnyCprLast +", '"+
+                tempFornavn + "', '" +
+                tempEfternavn + "', " +
+                tempCprFirst + ", " +
+                tempnyCprLast + ", '" +
                 tempAdr +
                 "')";
         try {
@@ -217,7 +216,7 @@ public class DB_Statements {
         }
 
         //    handle sql exceptions
-        catch(SQLException ex) {
+        catch (SQLException ex) {
             System.out.println("\n---Ny kunde kunne ikke oprettes.---");
             ex.printStackTrace();
         }
@@ -246,7 +245,7 @@ public class DB_Statements {
         }
 
         //    handle sql exceptions
-        catch(SQLException ex) {
+        catch (SQLException ex) {
             System.out.println("\n---Nye testkunder kunne ikke oprettes---");
             ex.printStackTrace();
         }
@@ -259,7 +258,7 @@ public class DB_Statements {
         //    SQL statement
         String query = "insert into kontoTable " +
                 "(lonkonto, opsparing, lonRente, opsrente, lonOT, opsOT) " +
-                "values "+
+                "values " +
                 "(10000,50000,0,5,10,1000), " +
                 "(13000, 54000, 0, 4, 5120,5200), " +
                 "(1000000, 3700, 0, 5, 1233,2000), " +
@@ -277,11 +276,12 @@ public class DB_Statements {
         }
 
         //    handle sql exceptions
-        catch(SQLException ex) {
+        catch (SQLException ex) {
             System.out.println("\n---Nye kontoer kunne ikke oprettes.---");
             ex.printStackTrace();
         }
     }
+
     //    method to read data from table
     public void queryThisTable() {
 
@@ -297,7 +297,7 @@ public class DB_Statements {
             System.out.println("\nid\t\tname\t\taddress\n___________________________________________");
 
             // return next row in the table while true
-            while(rs.next()) {
+            while (rs.next()) {
                 int id = rs.getInt(1);
                 String fName = rs.getString("fName");
                 String lName = rs.getString("lName");
@@ -309,67 +309,66 @@ public class DB_Statements {
         }
 
         //    handle sql exceptions
-        catch(SQLException ex) {
+        catch (SQLException ex) {
             System.out.println("\n---Statement did not execute (select query)---");
             ex.printStackTrace();
         }
 
     }
+
     /*Methode til at overfører beløb fra din konto til anden konto.*/
     //char kontotype: 'l' for lønkonto, og 'o' for opsparing.
-    public void overfor(int p_id, char kontotype, double belob, int kontonr , int regnr ){
+    public void overfor(int p_id, char kontotype, double belob, int kontonr, int regnr) {
         //
-        String query = "select opsparing from kontotable where p_id = "+p_id+" ";
+        String query = "select opsparing from kontotable where p_id = " + p_id + " ";
         //
-        String kontotypen= "opsparing";
+        String kontotypen = "opsparing";
         //
-        if (kontotype=='o'){
+        if (kontotype == 'o') {
             //
             kontotypen = "opsparing";
-        } else if(kontotype=='l'){
+        } else if (kontotype == 'l') {
             //
             kontotypen = "lonkonto";
-        }else{
+        } else {
 
             System.out.println("FEJL, forkert kontotype");
         }
-        query = "select "+kontotypen+" from kontotable where p_id = "+p_id+" ";
+        query = "select " + kontotypen + " from kontotable where p_id = " + p_id + " ";
 
 
-        try{
+        try {
             //create statement
             stmt = con.createStatement();
 
             //execute statement
             rs = stmt.executeQuery(query);
 
-            double kontobeløb =0.0;
-            while(rs.next()) {
+            double kontobeløb = 0.0;
+            while (rs.next()) {
                 kontobeløb = rs.getInt(1);
             }
             System.out.println(kontobeløb);
             //
-            double restSum = kontobeløb-belob;
+            double restSum = kontobeløb - belob;
             System.out.println(restSum);
             //
 
             //
-            String query2 = "UPDATE kontotable SET "+kontotypen +" = "+restSum +" where p_id = "+p_id+" ";
+            String query2 = "UPDATE kontotable SET " + kontotypen + " = " + restSum + " where p_id = " + p_id + " ";
 
-            try{
+            try {
                 //
-                stmt=con.createStatement();
+                stmt = con.createStatement();
                 //
                 stmt.executeUpdate(query2);
 
 
-            }
-            catch (SQLException ex){
+            } catch (SQLException ex) {
                 ex.printStackTrace();
                 System.out.println("---Fejl i pengetræk---");
 
             }
-
 
 
         } catch (SQLException e) {
@@ -378,7 +377,46 @@ public class DB_Statements {
         }
 
 
+    }
+    //Metoder til at hente værdier fra kontotable
+    //Vælger lonkonto hvor p_id er 1
 
+    public void lonkontoværdier(int p_id) {
+        String query = "select lonkonto, lonRente, lonOT from kontotable WHERE p_id = " + p_id + " ";
+        try {
+            //Connection
+            stmt = con.createStatement();
+            //Execute query
+            rs = stmt.executeQuery(query);
+            System.out.println("lonkonto \t lonRente \t lonOT");
+            while (rs.next()) {
+                String lonkonto = rs.getString("lonkonto"); //returns p_id
+                String lonRente = rs.getString("lonRente"); //returns p_id
+                String lonOT = rs.getString("lonOT"); //returns p_id
+                System.out.println("\t" + lonkonto + "\t\t" + lonRente + "\t\t\t" + lonOT);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
+    public void opsparingskontoværdier(int p_id) {
+        String query = "select opsparing, opsRente, opsOT from kontotable WHERE p_id = " + p_id + " ";
+        try {
+            //Connection
+            stmt = con.createStatement();
+            //Execute query
+            rs = stmt.executeQuery(query);
+            System.out.println("opsparing \t opsRente \t opsOT");
+            while (rs.next()) {
+                String opsparing = rs.getString("opsparing"); //returns p_id
+                String opsRente = rs.getString("opsRente"); //returns p_id
+                String opsOT = rs.getString("opsOT"); //returns p_id
+                System.out.println("\t" + opsparing + "\t\t" + opsRente + "\t\t\t" + opsOT);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+    }
 }

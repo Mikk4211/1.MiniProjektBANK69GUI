@@ -60,6 +60,7 @@ DB_Statements sqlStatement = new DB_Statements();
     @FXML
     private void handleButtonAction(ActionEvent e) {
         sqlStatement.useDB();
+        sqlStatement.lonkontoværdier(1);
 
         /*NY KUNDE*/
         //Hvis knap Ny kunde bliver klikket, indsætter vi data
