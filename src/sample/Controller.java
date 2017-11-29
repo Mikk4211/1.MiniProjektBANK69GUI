@@ -19,6 +19,7 @@ DB_Statements sqlStatement = new DB_Statements();
 
     @FXML
     private Button btn_nyKonto;
+    /*Opret ny kunde siden*/
     @FXML
     private Button btn_nyKunde;
     @FXML
@@ -31,10 +32,21 @@ DB_Statements sqlStatement = new DB_Statements();
     private TextField input_nyCprLast;
     @FXML
     private TextField input_nyAdr;
-    @FXML
-    private Label lbl;
+    /*Opret test DB*/
     @FXML
     private Button btn_opretDBTing;
+    /*Overfør siden*/
+    @FXML
+    private Label lbl_overfor_success;
+    @FXML
+    private Button btn_overfor;
+    @FXML
+    private TextField input_overfor_belob;
+    @FXML
+    private TextField input_overfor_kontonr;
+    @FXML
+    private TextField input_overfor_regnr;
+
 
 
     public int tempCprFirst = 0, tempCprLast = 0;
