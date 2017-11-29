@@ -127,9 +127,8 @@ DB_Statements sqlStatement = new DB_Statements();
 
 
             sqlStatement.overfor(p_id,tempKontoValg,tempOverforBelob,tempKontoNr,tempRegNr);
-
-
         }
+
 
         }
 

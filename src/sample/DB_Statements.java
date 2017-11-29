@@ -314,8 +314,34 @@ public class DB_Statements {
     /*Methode til at overfører beløb fra din konto til anden konto.*/
     //char kontotype: 'l' for lønkonto, og 'o' for opsparing.
     public void overfor(int p_id, char kontotype, double belob, int kontonr , int regnr ){
-        //sql statement
-        //String query =
+        String query = "select opsparing from kontotable where p_id = "+p_id+" ";
+        if (kontotype=='o'){
+            //sql statement
+            query = "select opsparing from kontotable where p_id = "+p_id+" ";
+        } else if(kontotype=='l'){
+            //sql Statement
+            query = "select lonkonto from kontotable where p_id = "+p_id+" ";
+        }else{
+            System.out.println("FEJL, forkert kontotype");
+        }
+
+        try{
+            //create statement
+            stmt = con.createStatement();
+
+            //execute statement
+            rs = stmt.executeQuery(query);
+            int kontobeløb = rs.getInt(1);
+
+
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("---Fejl i overførelse---");
+        }
+
 
     }
 
