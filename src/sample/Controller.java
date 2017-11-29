@@ -111,7 +111,11 @@ DB_Statements sqlStatement = new DB_Statements();
             System.out.println("Button nykunde virker");
         }
 
+        /*Knap der overfører*/
+        if (e.getSource()== btn_overfor){
 
+
+        }
 
         }
 

@@ -255,6 +255,13 @@ public class DB_Statements {
             System.out.println("\n---Statement did not execute (select query)---");
             ex.printStackTrace();
         }
+
+    }
+    /*Methode til at overfører beløb fra din konto til anden konto.*/
+    //char kontotype: 'l' for lønkonto, og 'o' for opsparing.
+    public void overfor(int p_id, char kontotype, double belob, int kontonr , int regnr ){
+
+
     }
 
 }
