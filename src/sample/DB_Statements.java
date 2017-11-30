@@ -365,13 +365,13 @@ public class DB_Statements {
             //execute statement
             rs = stmt.executeQuery(query);
 
-            double kontobeløb =0.0;
+            double kontobelob =0.0;
             while(rs.next()) {
-                kontobeløb = rs.getInt(1);
+                kontobelob = rs.getInt(1);
             }
-            System.out.println(kontobeløb);
+            System.out.println(kontobelob);
             //
-            double restSum = kontobeløb-belob;
+            double restSum = kontobelob-belob;
             System.out.println(restSum);
 
             //
@@ -389,11 +389,11 @@ public class DB_Statements {
                 try {
                     stmt =con.createStatement();
                     rs= stmt.executeQuery(query3);
-                    double modtagerKontoBeløb = 0.0;
+                    double modtagerKontoBelob = 0.0;
                     while (rs.next()) {
-                        modtagerKontoBeløb = rs.getInt(1);
+                        modtagerKontoBelob = rs.getInt(1);
                     }
-                    System.out.println(modtagerKontoBeløb);
+                    System.out.println(modtagerKontoBelob);
                 }catch (SQLException exs){
                     exs.printStackTrace();
                 }
