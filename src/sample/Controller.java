@@ -53,8 +53,8 @@ DB_Statements sqlStatement = new DB_Statements();
     private Button btn_konto_lonkonto;
     @FXML
     private Button btn_konto_opsparingskonto;
-    //@FXML
-    //private Label
+    @FXML
+    private Label
 
 
 
