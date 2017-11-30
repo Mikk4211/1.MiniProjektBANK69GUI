@@ -46,6 +46,21 @@ DB_Statements sqlStatement = new DB_Statements();
     private TextField input_nyCprLast;
     @FXML
     private TextField input_nyAdr;
+    @FXML
+    private TextField input_opret_lonBelob;
+    @FXML
+    private TextField input_opret_lonRente;
+    @FXML
+    private TextField input_opret_lonOvertrak;
+    @FXML
+    private TextField input_opret_opsparBelob;
+    @FXML
+    private TextField input_opret_opsparRente;
+    @FXML
+    private TextField input_opret_opsparOvertrak;
+
+
+
     /**
      * Javafx klasse for knap på opret database.
      */

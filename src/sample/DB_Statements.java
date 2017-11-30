@@ -392,12 +392,34 @@ public class DB_Statements {
                     double modtagerKontoBelob = 0.0;
                     while (rs.next()) {
                         modtagerKontoBelob = rs.getInt(1);
+
+                        double nySum = modtagerKontoBelob+belob;
+                        System.out.println(nySum);
+
+                        //String query4 = "UPDATE kontotable set lonkonto = "
+                        String query4 = "UPDATE kontotable SET lonkonto = " +nySum +" where p_id = "+kontonr+" ";
+
+                        try{
+                            stmt =con.createStatement();
+                            stmt.executeUpdate(query4);
+                            System.out.println("Det lykkedes :D");
+
+
+                        }
+                        catch(SQLException ex4) {
+                            ex4.printStackTrace();
+                            System.out.println("HOV, det virkede sgu ikke med at flytte penge.");
+
+
+                        }
+
                     }
                     System.out.println(modtagerKontoBelob);
                 }catch (SQLException exs){
                     exs.printStackTrace();
                 }
-                //String query4 = "UPDATE kontotable set lonkonto = "
+
+
 
             }
             catch (SQLException ex){
