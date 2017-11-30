@@ -12,7 +12,7 @@ import javafx.scene.image.ImageView;
 
 /**
  * @author Mathias Bruun(TejsFrank), Mads Nielsen(TheCaptain420), Johan Stenboeg(JohanStenboeg), Benjamin Ejrup(Wexr), Mikkel Sørensen(Mikk4211).
- * testets
+ *
  */
 
 
@@ -52,8 +52,6 @@ DB_Statements sqlStatement = new DB_Statements();
     /*Opret test DB*/
     @FXML
     private Button btn_opretDBTing;
-    @FXML
-    private ImageView logoPic;
     /**
      * Javafx klasser for overfør siden på GUI'en, med labels, knapper og textfelter.
      */
