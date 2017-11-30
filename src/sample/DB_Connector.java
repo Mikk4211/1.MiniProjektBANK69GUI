@@ -10,10 +10,12 @@ import java.sql.SQLException;
  * @version 1.0
  * @since 11/30-17
  *
- * Denne Class bruges til at connecte IntelliJ med MySQL.
+ * Denne Class bruges til at connecte IntelliJ med MySQL....
  *
  * Ved brug af en mysql Connector samt jdbc Driver er det muligt at hente samt sende information fra
  * IntelliJ til MySQL Workbench. Dette gøres muligt ved brug af Connection Class.
+ *
+ * Denne Class Javadoc er lavet af Benjamin E.
  */
 public class DB_Connector {
 
