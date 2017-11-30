@@ -46,8 +46,8 @@ public class DB_Statements {
           * 7. "create table if not exists kundeTable" - Laver vores kundetable i SQL og indsætter datatyper og værdier. Kig i source code.
           * 8. "INSERT INTO kundeTable" - Indsætter nogle specifikke værdier ind i kundeTable.
           * 9. "INSERT INTO kontoTable" - Indsætter nogle specifikke værdier ind i kontoTable.
-          * 10. 
-          * Inkluderer try & catch
+          * 10. Overfør metoden -
+          * Inkluderer try & catch i alle metoderne, try udfører query'en og catch fanger SQLexception og udskriver istedet en fejlmelding i konsollen.
          */
         String query = "create database if not exists Bank2017DB";
         try {
@@ -278,7 +278,7 @@ public class DB_Statements {
     //    method to insert data
     public void insertTestKonto() {
 
-        //    SQL statement
+        //    SQL statement - Indsætter data ind i kontotable, i kolonnerne, lonkonto, opsparing, lonrente, opsrente, lonOT, og opsOT
         String query = "insert into kontoTable " +
                 "(lonkonto, opsparing, lonRente, opsrente, lonOT, opsOT) " +
                 "values "+
@@ -307,7 +307,7 @@ public class DB_Statements {
     //    method to read data from table
     public void queryThisTable() {
 
-        //    SQL statement
+        //    Selecter data fra kundetable.
         String query = "select * from kundeTable";
         try {
 
