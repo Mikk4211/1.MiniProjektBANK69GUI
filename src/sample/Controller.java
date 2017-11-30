@@ -7,6 +7,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.*;
 import javafx.scene.control.*;
+/**
+ * @author Mathias Bruun(TejsFrank), Mads Nielsen(TheCaptain420), Johan Stenboeg(JohanStenboeg), Benjamin Ejrup(Wexr), Mikkel Sørensen(Mikk4211).
+ *
+ */
+
+
 /*
 * I Sample.fxml, når man laver en ny button skal du hardcode onAction="#handleButtonAction" ind i, da intellij+scenebuilder er skrald.
 * - Maaads
@@ -16,9 +22,14 @@ import javafx.scene.control.*;
 public class Controller {
 DB_Statements sqlStatement = new DB_Statements();
 
-
+    /**
+     * Javafx klasse for knapper på ny konto siden.
+     */
     @FXML
     private Button btn_nyKonto;
+    /**
+     * Javafx klasser for ny kunde siden, med textfields og knapper fra GUI'en.
+     */
     /*Opret ny kunde siden*/
     @FXML
     private Button btn_nyKunde;
@@ -32,9 +43,15 @@ DB_Statements sqlStatement = new DB_Statements();
     private TextField input_nyCprLast;
     @FXML
     private TextField input_nyAdr;
+    /**
+     * Javafx klasse for knap på opret database.
+     */
     /*Opret test DB*/
     @FXML
     private Button btn_opretDBTing;
+    /**
+     * Javafx klasser for overfør siden på GUI'en, med labels, knapper og textfelter.
+     */
     /*Overfør siden*/
     @FXML
     private Label lbl_overfor_success;
@@ -48,6 +65,9 @@ DB_Statements sqlStatement = new DB_Statements();
     private TextField input_overfor_regnr;
     @FXML
     private TextField input_overfor_valgkonto;
+    /**
+     * Javafx klasse for konto siden, med knapper og labels på GUI'en.
+     */
     /*Konto*/
     @FXML
     private Button btn_konto_lonkonto;
@@ -57,21 +77,27 @@ DB_Statements sqlStatement = new DB_Statements();
     //private Label
 
 
-
+    /**
+     * @param Forskellige parametre der bruges i den følgende kode der beskriver hvad knapperne på GUI'en skal gøre.
+     */
     public int tempCprFirst = 0, tempCprLast = 0;
     String tempFornavn, tempEfternavn, tempAdr;
     char symbol;
 
 
-
+    /**
+     * Metode der afhænger af ActionEvent e, og der afgører hvad der sker når man trykker på knapperne i GUI'en.
+     *
+     */
     @FXML
     private void handleButtonAction(ActionEvent e) {
         sqlStatement.useDB();
 
+/**
+ * NY kunde knappen.
+ * Når der trykkes på den knap, bliver følgende kode kørt. Der indsætter data, og opretter en ny kunde.
+ */
 
-        /*NY KUNDE*/
-        //Hvis knap Ny kunde bliver klikket, indsætter vi data
-        /*linje ned*/
         if (e.getSource() == btn_nyKunde) {
             //Henter fornavn, efternavn og adresse:
             tempFornavn = input_nyFornavn.getText();
@@ -99,6 +125,9 @@ DB_Statements sqlStatement = new DB_Statements();
             sqlStatement.insertNyKunde(tempFornavn,tempEfternavn,tempCprFirst,tempCprLast,tempAdr);
 
         }
+        /**
+         * Knap der opretter databasen og et table i databasen.
+         */
         /*Knap der opretter db og table */
         if (e.getSource() == btn_opretDBTing) {
             sqlStatement.createDB();
@@ -112,7 +141,9 @@ DB_Statements sqlStatement = new DB_Statements();
         if (e.getSource() == btn_nyKonto){
             System.out.println("Button nykunde virker");
         }
-
+/**
+ * Når knappen overfør bliver trykket på, så bliver det valgte beløb overført til den valgte konto.
+ */
         /*Knap der overfører*/
         if (e.getSource()== btn_overfor){
             //
@@ -137,13 +168,18 @@ DB_Statements sqlStatement = new DB_Statements();
             sqlStatement.overfor(p_id,tempKontoValg,tempOverforBelob,tempKontoNr);
         }
 
+        /**
+         * Kode til valg af henholdsvis lønkonto og opsparingskonto. Når den ene eller anden knap bliver trykket, så viser den kontoen svarende til knappen.
+         */
         if (e.getSource()==btn_konto_lonkonto){
+            //Kontrollere at knappen er opsat korrekt og virker før der bliver indsat kode.
             System.out.println("lønkontoknap virker");
 
 
 
         }
         if (e.getSource()==btn_konto_opsparingskonto)
+            //Kontrollere at knappen er opsat korrekt og virker før der bliver indsat kode. 
             System.out.println("Opsparingskontoknap virker");
 
         }
