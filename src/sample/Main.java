@@ -18,15 +18,16 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setResizable(false);
 
+
+        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));//Henter vores gui fra sample.fxml
         /**
          * Opretter og viser "vinduet", ved hjælp af javafx methoder.
          */
-        primaryStage.setTitle("BANK OF SIXTY NINE");
-        primaryStage.setScene(new Scene(root, 600, 400));
-        primaryStage.show();
+        primaryStage.setTitle("BANK OF SIXTY NINE");//Sætter overskrift for vores app.
+        primaryStage.setScene(new Scene(root, 600, 400));//Bestemmer auto vinduestørrelse.
+        primaryStage.setResizable(false);//Gør at man ikke ændre vindue størrelse.
+        primaryStage.show();//"Viser" vinduet.
     }
 
     /**
