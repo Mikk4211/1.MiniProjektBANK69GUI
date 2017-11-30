@@ -7,13 +7,22 @@ import java.sql.Statement;
 import java.sql.*;
 import java.sql.ResultSet;
 
+/**
+ * @author Mathias Bruun(TejsFrank), Mads Nielsen(TheCaptain420), Johan Stenboeg(JohanStenboeg), Benjamin Ejrup(Wexr), Mikkel Sørensen(Mikk4211).
+ *
+ */
 public class DB_Statements {
 
 
-    //    Declare a Statement
+    /**
+     * @param stmt variable for vores statement.
+     */
     private static Statement stmt = null;
 
-    //    Declare & create a connection
+    /**
+     * @param con varaible for vores database connector.
+      */
+
     private static Connection con = DB_Connector.connect();
 
     //    Declare a result set
@@ -26,8 +35,20 @@ public class DB_Statements {
     public void createDB() {
 
 
-
-        //    SQL statement
+        /**
+         @param query der er forskellige queries vi bruger i vores program.
+         * 1. "Create Database if not exists Bank2017DB" - Laver Databasen.
+          * 2. "use Bank2017DB" - bruger databasen.
+          * 3. "drop schema Bank2017DB" - Dropper databasen.
+          * 4. "drop table kundeTable" - Dropper table kundeTable.
+          * 5. "drop table kontoTable" - Dropper table kontoTable.
+          * 6. "create table if not exists kontoTable" - Laver vores kontotable i SQL og indsætter datatyper og værdier. Kig i source code.
+          * 7. "create table if not exists kundeTable" - Laver vores kundetable i SQL og indsætter datatyper og værdier. Kig i source code.
+          * 8. "INSERT INTO kundeTable" - Indsætter nogle specifikke værdier ind i kundeTable.
+          * 9. "INSERT INTO kontoTable" - Indsætter nogle specifikke værdier ind i kontoTable.
+          * 10. 
+          * Inkluderer try & catch
+         */
         String query = "create database if not exists Bank2017DB";
         try {
 
@@ -46,7 +67,9 @@ public class DB_Statements {
         }
     }
 
-    //    method to use a database
+    /**
+     *
+     */
     public void useDB() {
 
         //    SQL statement
