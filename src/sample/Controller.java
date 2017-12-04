@@ -87,10 +87,12 @@ DB_Statements sqlStatement = new DB_Statements();
     private Button btn_konto_lonkonto;
     @FXML
     private Button btn_konto_opsparingskonto;
-    //@FXML
-    //private Label
-
-
+    @FXML
+    private Label lbl_konto_beløb;
+    @FXML
+    private Label lbl_konto_renteIndsats;
+    @FXML
+    private Label lbl_konto_tilladtOvertræk;
 
     /**
      * @param Forskellige parametre der bruges i den følgende kode der beskriver hvad knapperne på GUI'en skal gøre.
@@ -204,18 +206,25 @@ DB_Statements sqlStatement = new DB_Statements();
         /**
          * Kode til valg af henholdsvis lønkonto og opsparingskonto. Når den ene eller anden knap bliver trykket, så viser den kontoen svarende til knappen.
          */
+
         if (e.getSource()==btn_konto_lonkonto){
             //Kontrollere at knappen er opsat korrekt og virker før der bliver indsat kode.
             System.out.println("lønkontoknap virker");
 
+            lbl_konto_beløb.setText("test");
+
+
 
 
         }
+
         if (e.getSource()==btn_konto_opsparingskonto)
             //Kontrollere at knappen er opsat korrekt og virker før der bliver indsat kode. 
             System.out.println("Opsparingskontoknap virker");
+            lbl_konto_beløb.setText("test2");
 
         }
+
 
 
 }
