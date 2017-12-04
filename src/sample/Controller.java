@@ -19,7 +19,7 @@ import javafx.scene.image.ImageView;
 
 
 public class Controller {
-DB_Statements sqlStatement = new DB_Statements();
+    DB_Statements sqlStatement = new DB_Statements();
 
     /**
      * Javafx klasse for knapper på ny konto siden.
@@ -54,7 +54,6 @@ DB_Statements sqlStatement = new DB_Statements();
     private TextField input_opret_opsparRente;
     @FXML
     private TextField input_opret_opsparOvertrak;
-
 
 
     /**
@@ -104,7 +103,6 @@ DB_Statements sqlStatement = new DB_Statements();
 
     /**
      * Metode der afhænger af ActionEvent e, og der afgører hvad der sker når man trykker på knapperne i GUI'en.
-     *
      */
     @FXML
     private void handleButtonAction(ActionEvent e) {
@@ -157,8 +155,8 @@ DB_Statements sqlStatement = new DB_Statements();
             double opsRenteP = Double.parseDouble(kParser6);
 
             //Statementsne der indsætter det i table.
-            sqlStatement.insertNyKunde(tempFornavn,tempEfternavn,tempCprFirst,tempCprLast,tempAdr);
-            sqlStatement.insertNyKundeBankVardier(lonBelobP,opsBelobP,lonRenteP,opsRenteP,lonOTP,opsOTP);
+            sqlStatement.insertNyKunde(tempFornavn, tempEfternavn, tempCprFirst, tempCprLast, tempAdr);
+            sqlStatement.insertNyKundeBankVardier(lonBelobP, opsBelobP, lonRenteP, opsRenteP, lonOTP, opsOTP);
         }
         /**
          * Knap der opretter databasen og et table i databasen.
@@ -173,14 +171,14 @@ DB_Statements sqlStatement = new DB_Statements();
             sqlStatement.insertTestKunder();
             sqlStatement.insertTestKonto();
         }
-        if (e.getSource() == btn_nyKonto){
+        if (e.getSource() == btn_nyKonto) {
             System.out.println("Button nykunde virker");
         }
 /**
  * Når knappen overfør bliver trykket på, så bliver det valgte beløb overført til den valgte konto.
  */
         /*Knap der overfører*/
-        if (e.getSource()== btn_overfor){
+        if (e.getSource() == btn_overfor) {
             //
             String tempBelobParser = input_overfor_belob.getText();
             double tempOverforBelob = Double.parseDouble(tempBelobParser);
@@ -200,31 +198,28 @@ DB_Statements sqlStatement = new DB_Statements();
             int p_id = 1;
 
 
-            sqlStatement.overfor(p_id,tempKontoValg,tempOverforBelob,tempKontoNr);
+            sqlStatement.overfor(p_id, tempKontoValg, tempOverforBelob, tempKontoNr);
         }
 
         /**
          * Kode til valg af henholdsvis lønkonto og opsparingskonto. Når den ene eller anden knap bliver trykket, så viser den kontoen svarende til knappen.
          */
 
-        if (e.getSource()==btn_konto_lonkonto){
+        if (e.getSource() == btn_konto_lonkonto) {
             //Kontrollere at knappen er opsat korrekt og virker før der bliver indsat kode.
             System.out.println("lønkontoknap virker");
-
-            lbl_konto_beløb.setText("test");
-
-
+            lbl_konto_beløb.setText("hold tight my man");
 
 
         }
 
-        if (e.getSource()==btn_konto_opsparingskonto)
+        if (e.getSource() == btn_konto_opsparingskonto) {
             //Kontrollere at knappen er opsat korrekt og virker før der bliver indsat kode. 
             System.out.println("Opsparingskontoknap virker");
-            lbl_konto_beløb.setText("test2");
+            lbl_konto_beløb.setText("He got a frisbee");
 
         }
 
 
-
+    }
 }
