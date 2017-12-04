@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.*;
-import java.sql.ResultSet;
 
 /**
  * @author Mathias Bruun(TejsFrank), Mads Nielsen(TheCaptain420), Johan Stenboeg(JohanStenboeg), Benjamin Ejrup(Wexr), Mikkel Sørensen(Mikk4211).
@@ -27,9 +25,6 @@ public class DB_Statements {
 
     //    Declare a result set
     private static ResultSet rs = null;
-
-
-
 
     //    Method to create a new Database
     public void createDB() {
@@ -366,6 +361,24 @@ public class DB_Statements {
         }
 
     }
+    public double gettingModtagersStartbelob(int p_id){
+        String query3 = "SELECT lonkonto FROM bank2017db.kontotable where p_id ="+p_id+" ";
+
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(query3);
+            while (rs.next()){
+                double modtagerbelob = rs.getDouble(1);
+                return modtagerbelob;
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+
     /*Methode til at overfører beløb fra din konto til anden konto.*/
     //char kontotype: 'l' for lønkonto, og 'o' for opsparing.
     public void overfor(int p_id, char kontotype, double belob, int kontonr  ){
@@ -412,43 +425,36 @@ public class DB_Statements {
                 //
                 stmt.executeUpdate(query2);
 
-
-                //IKKKE FÆRDIG!  ! !  !
-                String query3 = "SELECT lonkonto FROM kontotable where p_id ="+p_id+" ";
+                //
+                String query3 = "SELECT lonkonto FROM bank2017db.kontotable where p_id ="+p_id+" ";
                 try {
                     stmt =con.createStatement();
                     rs= stmt.executeQuery(query3);
-                    double modtagerKontoBelob = 0.0;
+                    /*double modtagerKontoBelob=0;
                     while (rs.next()) {
-                        modtagerKontoBelob = rs.getInt(1);
+                        modtagerKontoBelob = rs.getDouble(p_id);
+                        System.out.println("Modtager beløb: "+modtagerKontoBelob);
+                    }*/
+                    System.out.println("GETTING STARTER BELØB: "+gettingModtagersStartbelob(p_id));
+                        double nySum = gettingModtagersStartbelob(p_id) +belob;
+                        System.out.println("nye sum er :" +nySum);
 
-                        double nySum = modtagerKontoBelob+belob;
-                        System.out.println(nySum);
-
-                        //String query4 = "UPDATE kontotable set lonkonto = "
+                        //SQL statement
                         String query4 = "UPDATE kontotable SET lonkonto = " +nySum +" where p_id = "+kontonr+" ";
 
                         try{
                             stmt =con.createStatement();
                             stmt.executeUpdate(query4);
-                            System.out.println("Det lykkedes :D");
-
-
+                            System.out.println("--- Overførsel lykkes ---");
                         }
                         catch(SQLException ex4) {
                             ex4.printStackTrace();
-                            System.out.println("HOV, det virkede sgu ikke med at flytte penge.");
-
-
+                            System.out.println("--- fejl, Modtager modtog ikke beløbet ---");
                         }
 
-                    }
-                    System.out.println(modtagerKontoBelob);
                 }catch (SQLException exs){
                     exs.printStackTrace();
                 }
-
-
 
             }
             catch (SQLException ex){
@@ -456,8 +462,6 @@ public class DB_Statements {
                 System.out.println("---Fejl i pengetræk---");
 
             }
-
-
 
         } catch (SQLException e) {
             e.printStackTrace();
