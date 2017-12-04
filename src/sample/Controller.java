@@ -110,7 +110,7 @@ DB_Statements sqlStatement = new DB_Statements();
 
 /**
  * NY kunde knappen.
- * Når der trykkes på den knap, bliver følgende kode kørt. Der indsætter data, og opretter en ny kunde.
+ * Når der trykkes på den knap, bliver følgende kode kørt. Der indsætter data, og opretter en ny kunde, samt kundes bank værdier.
  */
 
         if (e.getSource() == btn_nyKunde) {
@@ -122,23 +122,41 @@ DB_Statements sqlStatement = new DB_Statements();
             //Giver cprFirst en værdi:
             String tempCprFirstParser = input_nyCprFirst.getText(); // Virker såfremt det er for sig selv.
             tempCprFirst = Integer.parseInt(tempCprFirstParser);
+            //Giver cprLast en værdi;
             String tempCprLastParser = input_nyCprLast.getText();
             tempCprLast = Integer.parseInt(tempCprLastParser);
 
-
-
-
+            //En sout der lige printer værdierne
             System.out.println(tempFornavn + " " + tempEfternavn);
             System.out.println(tempCprFirst + "-" + tempCprLast);
             System.out.println(tempAdr);
 
+            /*kunde bankværdier parserer. De ændre værdierne fra string til int/double*/
+            //parser for lønkonto beløbet
+            String kParser1 = input_opret_lonBelob.getText();
+            double lonBelobP = Double.parseDouble(kParser1);
 
-            /*
-            System.out.println(tempCprFirst + "-" + tempCprLast);
+            //Parser for opsparingsBeløbet
+            String kParser2 = input_opret_opsparBelob.getText();
+            double opsBelobP = Double.parseDouble(kParser2);
 
-            */
+            //Parser for tilladt overtræk på lønkontoen
+            String kParser3 = input_opret_lonOvertrak.getText();
+            int lonOTP = Integer.parseInt(kParser3);
+
+            //Parser for tilladt overtræk på opsparing
+            String kParser4 = input_opret_opsparBelob.getText();
+            int opsOTP = Integer.parseInt(kParser3);
+
+            //Parser for renterne
+            String kParser5 = input_opret_lonRente.getText();
+            String kParser6 = input_opret_opsparRente.getText();
+            double lonRenteP = Double.parseDouble(kParser5);
+            double opsRenteP = Double.parseDouble(kParser6);
+
+            //Statementsne der indsætter det i table.
             sqlStatement.insertNyKunde(tempFornavn,tempEfternavn,tempCprFirst,tempCprLast,tempAdr);
-
+            sqlStatement.insertNyKundeBankVardier(lonBelobP,opsBelobP,lonRenteP,opsRenteP,lonOTP,opsOTP);
         }
         /**
          * Knap der opretter databasen og et table i databasen.

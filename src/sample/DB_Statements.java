@@ -246,6 +246,35 @@ public class DB_Statements {
         }
     }
 
+    //Methode til at insætte hans bank værdier, altså hans beløb osv.
+    public void insertNyKundeBankVardier(double lonkonto, double opsparing, double lonrente, double opsrente, int lonot, int opsot){
+        //SQL statement
+        String query= "INSERT INTO kontotable"+
+                "(lonkonto, opsparing, lonRente, opsRente, lonOT, opsOT) VALUES ("+
+                lonkonto+", "+
+                opsparing+", "+
+                lonrente+", "+
+                opsrente+", "+
+                lonot+", "+
+                opsot+")";
+        try {
+            //create statement
+            stmt = con.createStatement();
+
+            //execute statement
+            stmt.executeUpdate(query);
+            System.out.println("\n---Ny Konto oprettet---");
+        }
+
+        //    handle sql exceptions
+        catch(SQLException ex) {
+            System.out.println("\n---Ny konto kunne ikke oprettes.---");
+            ex.printStackTrace();
+        }
+
+
+    }
+
     //    method to insert data
     public void insertTestKunder() {
 
