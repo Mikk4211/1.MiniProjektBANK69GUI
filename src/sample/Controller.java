@@ -16,10 +16,6 @@ import javafx.scene.image.ImageView;
  */
 
 
-/*
-* I Sample.fxml, når man laver en ny button skal du hardcode onAction="#handleButtonAction" ind i, da intellij+scenebuilder er skrald.
-* - Maaads
-*/
 
 
 public class Controller {
