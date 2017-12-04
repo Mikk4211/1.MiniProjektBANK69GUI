@@ -9,6 +9,8 @@ import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 
+import java.sql.SQLException;
+
 
 /**
  * @author Mathias Bruun(TejsFrank), Mads Nielsen(TheCaptain420), Johan Stenboeg(JohanStenboeg), Benjamin Ejrup(Wexr), Mikkel Sørensen(Mikk4211).
@@ -105,7 +107,7 @@ public class Controller {
      * Metode der afhænger af ActionEvent e, og der afgører hvad der sker når man trykker på knapperne i GUI'en.
      */
     @FXML
-    private void handleButtonAction(ActionEvent e) {
+    private void handleButtonAction(ActionEvent e) throws SQLException {
         sqlStatement.useDB();
 
 /**
@@ -204,22 +206,32 @@ public class Controller {
         /**
          * Kode til valg af henholdsvis lønkonto og opsparingskonto. Når den ene eller anden knap bliver trykket, så viser den kontoen svarende til knappen.
          */
+         /*
 
         if (e.getSource() == btn_konto_lonkonto) {
             //Kontrollere at knappen er opsat korrekt og virker før der bliver indsat kode.
             System.out.println("lønkontoknap virker");
-            lbl_konto_beløb.setText("hold tight my man");
 
+            sqlStatement.lonkontobelob(1);
+            lbl_konto_beløb.setText("wullubdub");
+            lbl_konto_renteIndsats.setText("thingies");
+            lbl_konto_tilladtOvertræk.setText("thing");
 
         }
 
         if (e.getSource() == btn_konto_opsparingskonto) {
             //Kontrollere at knappen er opsat korrekt og virker før der bliver indsat kode. 
             System.out.println("Opsparingskontoknap virker");
-            lbl_konto_beløb.setText("He got a frisbee");
+            sqlStatement.opsparingskontovaerdier(1);
+
+            lbl_konto_beløb.setText("t");
+            lbl_konto_renteIndsats.setText("something");
+            lbl_konto_tilladtOvertræk.setText("Something");
 
         }
+        */
 
 
     }
 }
+
