@@ -411,10 +411,10 @@ public class DB_Statements {
             while(rs.next()) {
                 kontobelob = rs.getInt(1);
             }
-            System.out.println(kontobelob);
+            System.out.println("Beløbet på afsenders konto før overførelse: " +kontobelob);
             //
             double restSum = kontobelob-belob;
-            System.out.println(restSum);
+            System.out.println("Beløbet på afsenders konto efter overførelse: "+restSum);
 
             //
             String query2 = "UPDATE kontotable SET "+kontotypen +" = "+restSum +" where p_id = "+p_id+" ";
@@ -430,14 +430,10 @@ public class DB_Statements {
                 try {
                     stmt =con.createStatement();
                     rs= stmt.executeQuery(query3);
-                    /*double modtagerKontoBelob=0;
-                    while (rs.next()) {
-                        modtagerKontoBelob = rs.getDouble(p_id);
-                        System.out.println("Modtager beløb: "+modtagerKontoBelob);
-                    }*/
+
                     System.out.println("GETTING STARTER BELØB: "+gettingModtagersStartbelob(kontonr));
                         double nySum = gettingModtagersStartbelob(kontonr) +belob;
-                        System.out.println("nye sum er :" +nySum);
+                        System.out.println("Den nye sum hos modtager er :" +nySum);
 
                         //SQL statement
                         String query4 = "UPDATE kontotable SET lonkonto = " +nySum +" where p_id = "+kontonr+" ";
