@@ -496,21 +496,21 @@ public class DB_Statements {
             }
             if (arg2 == "lonkonto") {
                 if (arg == "lonkonto") {
-                    return lonkonto;
+                    return lonkonto+" dkk.";
                 } else if (arg == "lonRente") {
-                    return lonRente;
+                    return lonRente+"%";
                 } else if (arg == "lonOT") {
-                    return lonOT;
+                    return lonOT + " dkk.";
                 } else {
                     return "fejl";
                 }
             }else if (arg2 == "opsparingskonto"){
                 if (arg == "opsparing") {
-                    return opsparing;
+                    return opsparing+ " dkk.";
                 } else if (arg == "opsRente") {
-                    return opsRente;
+                    return opsRente + "%";
                 } else if (arg == "opsOT") {
-                    return opsOT;
+                    return opsOT+" dkk.";
                 } else {
                     return "fejl";
                 }
