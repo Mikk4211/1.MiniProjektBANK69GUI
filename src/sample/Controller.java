@@ -129,9 +129,10 @@ public class Controller {
             tempCprLast = Integer.parseInt(tempCprLastParser);
 
             //En sout der lige printer værdierne
-            System.out.println(tempFornavn + " " + tempEfternavn);
-            System.out.println(tempCprFirst + "-" + tempCprLast);
-            System.out.println(tempAdr);
+            System.out.println("Ny kunde oprettet\n------------------- ");
+            System.out.println(" Navn :" + tempFornavn + " " + tempEfternavn);
+            System.out.println("CPR : " + tempCprFirst + "-" + tempCprLast);
+            System.out.println("Adresse : "+tempAdr);
 
             /*kunde bankværdier parserer. De ændre værdierne fra string til int/double*/
             //parser for lønkonto beløbet
