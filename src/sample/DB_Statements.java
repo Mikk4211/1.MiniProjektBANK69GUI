@@ -277,10 +277,10 @@ public class DB_Statements {
         String query = "insert into kundeTable " +
                 "(fName, lName, cprFirst, cprLast, address) " +
                 "values ('Benjamin', 'Ejrup', 111187, 1234, 'Slotsgade 9 2.tv'), " +
-                "('Mads', 'Nielsen', 123456, 1234, 'Vejnavn 2'), " +
+                "('Mads', 'Nielsen', 123456, 1234, 'HerogNuvej'), " +
                 "('Mathias', 'Bruun', 234567, 1234, 'Vejnavn 3'), " +
                 "('Mikkel', 'Bøgse', 345678, 1234, 'Vejnavn 4'), " +
-                "('Johan', 'Stenboeg', 456789, 1234, 'Vejnavn 5')";
+                "('Johan', 'Stenbøgs', 456789, 1234, 'Vejnavn 5')";
         try {
 
             //    create statement
@@ -362,15 +362,15 @@ public class DB_Statements {
 
     }
     public double gettingModtagersStartbelob(int p_id){
-        String query3 = "SELECT lonkonto FROM bank2017db.kontotable where p_id ="+p_id+" ";
+        String query = "SELECT lonkonto FROM bank2017db.kontotable where p_id ="+p_id+" ";
 
         try {
             stmt = con.createStatement();
-            rs = stmt.executeQuery(query3);
+            rs = stmt.executeQuery(query);
+            int i = 1;
             while (rs.next()){
                 double modtagerbelob = rs.getDouble(1);
                 return modtagerbelob;
-
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -435,8 +435,8 @@ public class DB_Statements {
                         modtagerKontoBelob = rs.getDouble(p_id);
                         System.out.println("Modtager beløb: "+modtagerKontoBelob);
                     }*/
-                    System.out.println("GETTING STARTER BELØB: "+gettingModtagersStartbelob(p_id));
-                        double nySum = gettingModtagersStartbelob(p_id) +belob;
+                    System.out.println("GETTING STARTER BELØB: "+gettingModtagersStartbelob(kontonr));
+                        double nySum = gettingModtagersStartbelob(kontonr) +belob;
                         System.out.println("nye sum er :" +nySum);
 
                         //SQL statement

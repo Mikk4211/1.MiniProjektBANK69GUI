@@ -197,7 +197,7 @@ public class Controller {
             char tempKontoValg = input_overfor_valgkonto.getText().charAt(0);
 
             //
-            int p_id = 1;
+            int p_id =1;
 
 
             sqlStatement.overfor(p_id, tempKontoValg, tempOverforBelob, tempKontoNr);
