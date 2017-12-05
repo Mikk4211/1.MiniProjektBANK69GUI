@@ -471,44 +471,55 @@ public class DB_Statements {
 
     }
 
-    //Metoder til at hente værdier fra kontotable
-    //Vælger lonkonto hvor p_id er 1
-    public void lonkontoværdier(int p_id) {
-        String query = "select lonkonto, lonRente, lonOT from kontotable WHERE p_id = " + p_id + " ";
+
+
+    public String opsparingskontovaerdier(int p_id, String arg, String arg2) {
+        String query = "select lonkonto, opsparing, lonRente, opsRente, lonOT, opsOT from kontotable WHERE p_id = " + p_id + " ";
+        String lonkonto = " ";
+        String lonRente = " ";
+        String lonOT = " ";
+        String opsparing = " ";
+        String opsRente = " ";
+        String opsOT = " ";
         try {
             //Connection
             stmt = con.createStatement();
             //Execute query
             rs = stmt.executeQuery(query);
-            System.out.println("lonkonto \t lonRente \t lonOT");
             while (rs.next()) {
-                String lonkonto = rs.getString("lonkonto"); //returns p_id
-                String lonRente = rs.getString("lonRente"); //returns p_id
-                String lonOT = rs.getString("lonOT"); //returns p_id
-                System.out.println("\t" + lonkonto + "\t\t" + lonRente + "\t\t\t" + lonOT);
+                lonkonto = rs.getString("lonkonto"); //returns p_id
+                lonRente = rs.getString("lonRente"); //returns p_id
+                lonOT = rs.getString("lonOT"); //returns p_id
+                opsparing = rs.getString("opsparing"); //returns p_id
+                opsRente = rs.getString("opsRente"); //returns p_id
+                opsOT = rs.getString("opsOT"); //returns p_id
+            }
+            if (arg2 == "lonkonto") {
+                if (arg == "lonkonto") {
+                    return lonkonto;
+                } else if (arg == "lonRente") {
+                    return lonRente;
+                } else if (arg == "lonOT") {
+                    return lonOT;
+                } else {
+                    return "fejl";
+                }
+            }else if (arg2 == "opsparingskonto"){
+                if (arg == "opsparing") {
+                    return opsparing;
+                } else if (arg == "opsRente") {
+                    return opsRente;
+                } else if (arg == "opsOT") {
+                    return opsOT;
+                } else {
+                    return "fejl";
+                }
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+            System.out.println("---fejl, problemer med at vise beløb for konto");
         }
+        return "fejl";
     }
 
-    public void opsparingskontoværdier(int p_id) {
-        String query = "select opsparing, opsRente, opsOT from kontotable WHERE p_id = " + p_id + " ";
-        try {
-            //Connection
-            stmt = con.createStatement();
-            //Execute query
-            rs = stmt.executeQuery(query);
-            System.out.println("opsparing \t opsRente \t opsOT");
-            while (rs.next()) {
-                String opsparing = rs.getString("opsparing"); //returns p_id
-                String opsRente = rs.getString("opsRente"); //returns p_id
-                String opsOT = rs.getString("opsOT"); //returns p_id
-                System.out.println("\t" + opsparing + "\t\t" + opsRente + "\t\t\t" + opsOT);
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-
     }
-}
