@@ -22,9 +22,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-     //*   String urlString = new File("/Users/mathias/IdeaProjects/1.MiniProjektBANK69GUI/music/Bryan Adams - Summer of 69.mp3").toURI().toString();
-     //   MediaPlayer player = new MediaPlayer(new Media(urlString));
-       // player.play();
+        String urlString = new File("music/Bryan Adams - Summer of 69.mp3").toURI().toString();
+        MediaPlayer player = new MediaPlayer(new Media(urlString));
+        player.play();
+        player.setAutoPlay(true);
 
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));//Henter vores gui fra sample.fxml
         /**
