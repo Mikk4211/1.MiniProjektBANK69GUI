@@ -206,30 +206,24 @@ public class Controller {
         /**
          * Kode til valg af henholdsvis lønkonto og opsparingskonto. Når den ene eller anden knap bliver trykket, så viser den kontoen svarende til knappen.
          */
-         /*
+
 
         if (e.getSource() == btn_konto_lonkonto) {
             //Kontrollere at knappen er opsat korrekt og virker før der bliver indsat kode.
-            System.out.println("lønkontoknap virker");
-
-            sqlStatement.lonkontobelob(1);
-            lbl_konto_beløb.setText("wullubdub");
-            lbl_konto_renteIndsats.setText("thingies");
-            lbl_konto_tilladtOvertræk.setText("thing");
+            lbl_konto_beløb.setText(sqlStatement.opsparingskontovaerdier(1,"lonkonto", "lonkonto"));
+            lbl_konto_renteIndsats.setText(sqlStatement.opsparingskontovaerdier(1,"lonRente", "lonkonto"));
+            lbl_konto_tilladtOvertræk.setText(sqlStatement.opsparingskontovaerdier(1,"lonOT", "lonkonto"));
 
         }
 
         if (e.getSource() == btn_konto_opsparingskonto) {
-            //Kontrollere at knappen er opsat korrekt og virker før der bliver indsat kode. 
-            System.out.println("Opsparingskontoknap virker");
-            sqlStatement.opsparingskontovaerdier(1);
-
-            lbl_konto_beløb.setText("t");
-            lbl_konto_renteIndsats.setText("something");
-            lbl_konto_tilladtOvertræk.setText("Something");
+            //Kontrollere at knappen er opsat korrekt og virker før der bliver indsat kode.
+            lbl_konto_beløb.setText(sqlStatement.opsparingskontovaerdier(1,"opsparing", "opsparingskonto"));
+            lbl_konto_renteIndsats.setText(sqlStatement.opsparingskontovaerdier(1,"opsRente", "opsparingskonto"));
+            lbl_konto_tilladtOvertræk.setText(sqlStatement.opsparingskontovaerdier(1,"opsOT", "opsparingskonto"));
 
         }
-        */
+
 
 
     }
