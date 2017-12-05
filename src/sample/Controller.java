@@ -186,7 +186,7 @@ public class Controller {
             double tempOverforBelob = Double.parseDouble(tempBelobParser);
 
             //
-            /*String tempRegParser = input_overfor_regnr.getText();
+            /*String tempRegParser = input_overfor_regnr.getText();//Skal ikke bruges da vi kører med p_id istedet for konto og regnr.
             int tempRegNr = Integer.parseInt(tempRegParser);*/
 
             //
