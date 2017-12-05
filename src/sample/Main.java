@@ -22,16 +22,16 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        String urlString = new File("music/Bryan Adams - Summer of 69.mp3").toURI().toString();
-        MediaPlayer player = new MediaPlayer(new Media(urlString));
-        player.play();
-        player.setAutoPlay(true);
+        String urlString = new File("music/Bryan Adams - Summer of 69.mp3").toURI().toString();//Finder music filen med Relativ path(så alle kan bruge den).
+        MediaPlayer player = new MediaPlayer(new Media(urlString));//Laver filen om til en Mediaplayer
+        player.play();//Tillader den at afspille
+        player.setAutoPlay(true);//Afspiller den på startup.
 
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));//Henter vores gui fra sample.fxml
         /**
          * Opretter og viser "vinduet", ved hjælp af javafx methoder.
          */
-        primaryStage.setTitle("BANK OF SIXTY NINE");//Sætter overskrift for vores app.
+        primaryStage.setTitle("BANK OF 'SIXTY NINE");//Sætter overskrift for vores app.
         primaryStage.setScene(new Scene(root, 600, 400));//Bestemmer auto vinduestørrelse.
         primaryStage.setResizable(false);//Gør at man ikke ændre vindue størrelse.
         primaryStage.show();//"Viser" vinduet.

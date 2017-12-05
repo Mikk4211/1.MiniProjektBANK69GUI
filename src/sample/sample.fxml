@@ -98,7 +98,7 @@
                     </tabs>
                 </TabPane>
                 <Text layoutX="530.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                <Text layoutX="530.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank of 69" />
+                <Text layoutX="530.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bank of '69" />
             <Button fx:id="btn_opretDBTing" layoutX="490.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Opret DB+table" />
             </children></AnchorPane>
     </items>
