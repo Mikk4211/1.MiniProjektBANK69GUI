@@ -5,6 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+import java.io.File;
 
 /**
  * Main.
@@ -18,7 +22,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-
+     //*   String urlString = new File("/Users/mathias/IdeaProjects/1.MiniProjektBANK69GUI/music/Bryan Adams - Summer of 69.mp3").toURI().toString();
+     //   MediaPlayer player = new MediaPlayer(new Media(urlString));
+       // player.play();
 
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));//Henter vores gui fra sample.fxml
         /**
@@ -34,6 +40,7 @@ public class Main extends Application {
      * @param args Commando linjens argumenter.
      */
     public static void main(String[] args) {
+
         launch(args);
     }
 }
