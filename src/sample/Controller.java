@@ -149,8 +149,8 @@ public class Controller {
             int lonOTP = Integer.parseInt(kParser3);
 
             //Parser for tilladt overtræk på opsparing
-            String kParser4 = input_opret_opsparBelob.getText();
-            int opsOTP = Integer.parseInt(kParser3);
+            String kParser4 = input_opret_opsparOvertrak.getText();
+            int opsOTP = Integer.parseInt(kParser4);
 
             //Parser for renterne
             String kParser5 = input_opret_lonRente.getText();

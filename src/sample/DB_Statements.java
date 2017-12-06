@@ -280,7 +280,7 @@ public class DB_Statements {
         String query = "insert into kundeTable " +
                 "(fName, lName, cprFirst, cprLast, address) " +
                 "values ('Benjamin', 'Ejrup', 111187, 1234, 'Slotsgade 9 2.tv'), " +
-                "('Mads', 'Nielsen', 123456, 1234, 'HerogNuvej'), " +
+                "('Mads', 'Nielsen', 123456, 1234, 'HerogNuvej 5'), " +
                 "('Mathias', 'Bruun', 234567, 1234, 'Vejnavn 3'), " +
                 "('Mikkel', 'Bøgse', 345678, 1234, 'Vejnavn 4'), " +
                 "('Johan', 'Stenbøgs', 456789, 1234, 'Vejnavn 5')";
