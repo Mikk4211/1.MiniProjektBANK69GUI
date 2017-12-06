@@ -1,11 +1,11 @@
 # 1.MiniProjektBANK69GUI - Bank of 69 miniprojekt
 Authors: Mathias Bruun(TejsFrank), Mads Nielsen(TheCaptain420), Johan Stenboeg(JohanStenboeg), Benjamin Ejrup(Wexr), Mikkel Sørensen(Mikk4211).
 
-                            ** ** ** DISCLAIMER: GUI FUNGERER IKKE OPTIMALT PÅ MAC ENHEDER ** ** **
-                            Før du bruger vores program skal du gørende følgende:
-                            Opret en connection i MySQL:
-                            Username: admin
-                            Password: 1234
+                        ** ** ** DISCLAIMER: GUI FUNGERER IKKE OPTIMALT PÅ MAC ENHEDER ** ** **
+                             Før du bruger vores program skal du gørende følgende:
+                             Opret en connection i MySQL:
+                             Username: admin
+                             Password: 1234
                             
 
 Vi har i dette projekt for første gang arbejdet med GUI(Graphical User Interface) rigtigt. Vi har her udarbejdet en GUI i java, i IntelliJ IDEA. GUI er lavet i en integreret version af Scenebuilder i IntelliJ, og vi har en databse, som er lavet i MySQL, som vi forbinder til IntelliJ ved hjælp af en connector. 
@@ -17,9 +17,11 @@ Når du først åbner programmet, bliver du mødt af et vindue, hvor der er et a
 På ***[BR]Liste over Kunder*** kan du se diverse data, såsom indestående beløb, rentesats samt tilladt overtræk for en given konto for den respektive kunde. Her skulle det være muligt, for en BR at skifte mellem de forskellige kunder og se data for kunden. Der er 3 knapper i dette vindue, *lønkonto, opsparingskonto* og en universel knap *opret DB+table*. De to første knapper, skulle skifte mellem hvilken konto for kunden du kan se data over. Den sidste knap laver en tabel i vores MySQL databse, hvor dataene bliver opbevaret. 
 
 ![](https://image.prntscr.com/image/mLVPm4pESBS2fho1okt6Tg.png)
+
 Viser hvilken tab man er i
 
 ![](https://image.prntscr.com/image/qCxcK8nDSSShXu0A7Njmlg.png)
+
 Viser knappen for oprettelse af tabel i databasen
 
 På ***[BR]Opret ny kunde*** kan man som BR oprette en ny kunde, ved at indtaste data, som du får indsendt af en kunde. Herunder er der placeret textfields, hvor man kan indtaste fornavn, efternavn, CPR-Nummer og adresse. Herefter trykker du på *Opret kunde* for at sende dataene til databasen, hvorefter de bliver tilføjet til tabellen i MySQL. 
