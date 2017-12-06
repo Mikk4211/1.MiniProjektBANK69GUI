@@ -496,8 +496,7 @@ public class DB_Statements {
                 }
             } else{
                 System.out.println("---Fejl, du kan ikke overføre så mange penge, pga. dit overtræk ikke er stort nok---");
-                JOptionPane.showMessageDialog(JOptionPane.getRootFrame(),
-                        "Hov, Du kan ikke overføre så mange penge, pga. dit overtræk ikke er stort nok!");
+                showFaultMessage();
             }
 
         } catch (SQLException e) {
@@ -508,7 +507,10 @@ public class DB_Statements {
 
     }
 
-
+    public void showFaultMessage(){
+        JOptionPane.showMessageDialog(JOptionPane.getRootFrame(),
+                "Hov, Du kan ikke overføre så mange penge, pga. dit overtræk ikke er stort nok!");
+    }
 
     public String opsparingskontovaerdier(int p_id, String arg, String arg2) {
         String query = "select lonkonto, opsparing, lonRente, opsRente, lonOT, opsOT from kontotable WHERE p_id = " + p_id + " ";
