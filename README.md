@@ -6,7 +6,7 @@ Authors: Mathias Bruun(TejsFrank), Mads Nielsen(TheCaptain420), Johan Stenboeg(J
 Vi har i dette projekt for første gang arbejdet med GUI(Graphical User Interface) rigtigt. Vi har her udarbejdet en GUI i java, i IntelliJ IDEA. GUI er lavet i en integreret version af Scenebuilder i IntelliJ, og vi har en databse, som er lavet i MySQL, som vi forbinder til IntelliJ ved hjælp af en connector. 
 
 Når du først åbner programmet, bliver du mødt af et vindue, hvor der er et antal tabs. Antallet varierer, om du er logget ind som BR(Bankrådgiver) eller C(Customer). Selve login funktionen er endnu ikke implementeret, men er en udvidelse, der let ville kunne implementeres. Der er samlet 4 tabs, 2 som [BR]bankrådgiver har adgang til og 2 som [C]Kunde/bruger har adgang til.  
-![](http://prntscr.com/hjqu9j) - viser tabs
+![alt-text](http://prntscr.com/hjqu9j) - viser tabs
 
 På *[BR]Liste over Kunder* kan du se diverse data, såsom indestående beløb, rentesats samt tilladt overtræk for en given konto for den respektive kunde. Her skulle det være muligt, for en BR at skifte mellem de forskellige kunder og se data for kunden. Der er 3 knapper i dette vindue, *lønkonto, opsparingskonto* og en universel knap *opret DB+table*. De to første knapper, skulle skifte mellem hvilken konto for kunden du kan se data over. Den sidste knap laver en tabel i vores MySQL databse, hvor dataene bliver opbevaret. 
 http://prntscr.com/hjquk3 - Viser hvilken tab man er i
