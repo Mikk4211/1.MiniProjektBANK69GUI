@@ -2,6 +2,7 @@ package sample;
 
 import java.nio.file.Paths;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,6 +29,7 @@ public class Main extends Application {
         MediaPlayer player = new MediaPlayer(new Media(urlString));//Laver filen om til en Mediaplayer
         player.play();//Tillader den at afspille
         player.setAutoPlay(true);//Afspiller den på startup.
+        player.setCycleCount(69);//Hvor mange gange sangen skal køre
         String urlString2 = new File("OtherFiles/icon.png").toURI().toString();//Henter icon filensplacering og laver den om til et "uri".
         primaryStage.getIcons().add(new Image(urlString2));//Sætter Icon på programmet til at være det, der ligger på OtherFiles/icon.png.
 
@@ -40,6 +42,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 600, 400));//Bestemmer auto vinduestørrelse.
         primaryStage.setResizable(false);//Gør at man ikke ændre vindue størrelse.
         primaryStage.show();//"Viser" vinduet.
+
     }
 
     /**
