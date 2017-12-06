@@ -10,8 +10,11 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.control.Alert;
+
 
 import java.io.File;
+
 
 /**
  * Main.
@@ -32,7 +35,6 @@ public class Main extends Application {
         player.setCycleCount(69);//Hvor mange gange sangen skal køre
         String urlString2 = new File("OtherFiles/icon.png").toURI().toString();//Henter icon filensplacering og laver den om til et "uri".
         primaryStage.getIcons().add(new Image(urlString2));//Sætter Icon på programmet til at være det, der ligger på OtherFiles/icon.png.
-
 
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));//Henter vores gui fra sample.fxml
         /**

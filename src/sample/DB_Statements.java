@@ -1,5 +1,8 @@
 package sample;
 
+import javafx.scene.control.Alert;
+
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -379,11 +382,11 @@ public class DB_Statements {
         return 0;
     }
     /* */
-    public int gettingOTbelob(String kontotypen, int p_id){
+    public int gettingOTbelob(char kontotypen, int p_id){
        String kontotype = "lonOT";
-       if (kontotypen=="o") {
+       if (kontotypen=='o') {
             kontotype = "opsOT";
-       }else if(kontotypen=="l"){
+       }else if(kontotypen=='l'){
            kontotype="lonOT";
        }else{
            System.out.println("---Fejl, forkert konto type---");
@@ -395,18 +398,25 @@ public class DB_Statements {
         try {
             stmt = con.createStatement();
             rs = stmt.executeQuery(query);
+            int otVardi = 0;
+            while(rs.next()) {
+                otVardi = rs.getInt(1);
+                System.out.println(otVardi);
+            }
+            return otVardi;
+
+            //System.out.println("---Hentede overtræk værdien : "+ otVardi+"---");
         } catch (SQLException e) {
             System.out.println("---Fejl, kunne ikke hente overtræk værdien ---");
             e.printStackTrace();
         }
-
-
         return 0;
     }
 
     /*Methode til at overfører beløb fra din konto til anden konto.*/
     //char kontotype: 'l' for lønkonto, og 'o' for opsparing.
     public void overfor(int p_id, char kontotype, double belob, int kontonr  ){
+        //
         //Vores query til at vælge opsparingskonto efter hvilket p_id du indtaster
         String query = "select opsparing from kontotable where p_id = "+p_id+" ";
         //
@@ -443,47 +453,51 @@ public class DB_Statements {
             double restSum = kontobelob-belob;
             System.out.println("Beløbet på afsenders konto efter overførelse: "+restSum);
 
-            //Metode som opdaterer SQL tabellen efter en overførsel har fundet sted.
-            String query2 = "UPDATE kontotable SET "+kontotypen +" = "+restSum +" where p_id = "+p_id+" ";
+            if((belob-kontobelob)<=gettingOTbelob(kontotype,p_id) ) {
+                //Metode som opdaterer SQL tabellen efter en overførsel har fundet sted.
+                String query2 = "UPDATE kontotable SET " + kontotypen + " = " + restSum + " where p_id = " + p_id + " ";
 
-            try{
-                //create statement
-                stmt=con.createStatement();
-                //execute statement
-                stmt.executeUpdate(query2);
-
-                //
-                String query3 = "SELECT lonkonto FROM bank2017db.kontotable where p_id ="+p_id+" ";
                 try {
-                    stmt =con.createStatement();
-                    rs= stmt.executeQuery(query3);
+                    //create statement
+                    stmt = con.createStatement();
+                    //execute statement
+                    stmt.executeUpdate(query2);
 
-                    System.out.println("GETTING STARTER BELØB: "+gettingModtagersStartbelob(kontonr));
-                        double nySum = gettingModtagersStartbelob(kontonr) +belob;
-                        System.out.println("Den nye sum hos modtager er :" +nySum);
+                    //
+                    String query3 = "SELECT lonkonto FROM bank2017db.kontotable where p_id =" + p_id + " ";
+                    try {
+                        stmt = con.createStatement();
+                        rs = stmt.executeQuery(query3);
+
+                        System.out.println("GETTING STARTER BELØB: " + gettingModtagersStartbelob(kontonr));
+                        double nySum = gettingModtagersStartbelob(kontonr) + belob;
+                        System.out.println("Den nye sum hos modtager er :" + nySum);
 
                         //SQL statement
-                        String query4 = "UPDATE kontotable SET lonkonto = " +nySum +" where p_id = "+kontonr+" ";
+                        String query4 = "UPDATE kontotable SET lonkonto = " + nySum + " where p_id = " + kontonr + " ";
 
-                        try{
-                            stmt =con.createStatement();
+                        try {
+                            stmt = con.createStatement();
                             stmt.executeUpdate(query4);
                             System.out.println("--- Overførsel lykkes ---");
-                        }
-                        catch(SQLException ex4) {
+                        } catch (SQLException ex4) {
                             ex4.printStackTrace();
                             System.out.println("--- fejl, Modtager modtog ikke beløbet ---");
                         }
 
-                }catch (SQLException exs){
-                    exs.printStackTrace();
+                    } catch (SQLException exs) {
+                        exs.printStackTrace();
+                    }
+
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                    System.out.println("---Fejl i pengetræk---");
+
                 }
-
-            }
-            catch (SQLException ex){
-                ex.printStackTrace();
-                System.out.println("---Fejl i pengetræk---");
-
+            } else{
+                System.out.println("---Fejl, du kan ikke overføre så mange penge, pga. dit overtræk ikke er stort nok---");
+                JOptionPane.showMessageDialog(JOptionPane.getRootFrame(),
+                        "Hov, Du kan ikke overføre så mange penge, pga. dit overtræk ikke er stort nok!");
             }
 
         } catch (SQLException e) {

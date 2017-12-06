@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import java.sql.SQLException;
 
 
+
 /**
  * @author Mathias Bruun(TejsFrank), Mads Nielsen(TheCaptain420), Johan Stenboeg(JohanStenboeg), Benjamin Ejrup(Wexr), Mikkel Sørensen(Mikk4211).
  *
@@ -203,6 +204,7 @@ public class Controller {
 
             //Bruger statement, der overføre beløbet.
             sqlStatement.overfor(p_id, tempKontoValg, tempOverforBelob, tempKontoNr);
+
         }
 
         /**
