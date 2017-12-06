@@ -6,6 +6,8 @@ Authors: Mathias Bruun(TejsFrank), Mads Nielsen(TheCaptain420), Johan Stenboeg(J
                              Opret en connection i MySQL:
                              Username: admin
                              Password: 1234
+                             Opret en database i MySQL:
+                             bank2017db
                             
 
 Vi har i dette projekt for første gang arbejdet med GUI(Graphical User Interface) rigtigt. Vi har her udarbejdet en GUI i java, i IntelliJ IDEA. GUI er lavet i en integreret version af Scenebuilder i IntelliJ, og vi har en databse, som er lavet i MySQL, som vi forbinder til IntelliJ ved hjælp af en connector. 
