@@ -62,9 +62,7 @@ public class DB_Statements {
         }
     }
 
-    /**
-     *
-     */
+    /*En methode, der sikrer at vi bruger den rigtige Database*/
     public void useDB() {
 
         //    SQL statement
@@ -87,7 +85,7 @@ public class DB_Statements {
     }
 
 
-    //Drop Database
+    /*En methode der dropper vores DB, så vi kan lave en ny, af samme navn. Denne bliver brugt når vi "resetter" bankens oplysninger*/
     public void dropDB() {
 
         //    SQL statement
@@ -108,7 +106,7 @@ public class DB_Statements {
             ex.printStackTrace();
         }
     }
-
+    /*Methode der dropper kundetable, bruges når vi "resetter" banken*/
     public void dropTableKundeTable() {
 
         //    SQL statement
@@ -130,6 +128,7 @@ public class DB_Statements {
             ex.printStackTrace();
         }
     }
+    /*Methode der dropper kontotable, bruges når vi "resetter" banken*/
     public void dropTableKontoTable() {
 
         //    SQL statement
@@ -150,7 +149,7 @@ public class DB_Statements {
             ex.printStackTrace();
         }
     }
-    //    method to create a konto table
+    /*En methode der opretter et kundetable, bruges når man klikker "Opret DB+Table"*/
     public void createKontoTable() {
 
         //    SQL statement
@@ -181,7 +180,7 @@ public class DB_Statements {
         }
     }
 
-    //method to create a table
+    /*Methode til at lave et kundetable,  bruges når man klikker "Opret DB+Table"*/
     public void createKundeTable() {
 
         //SQL statement
@@ -212,7 +211,7 @@ public class DB_Statements {
     }
 
 
-    //    method to insert data
+    /*Methode der indsætter ny kunde, i kunde table*/
     public void insertNyKunde(String tempFornavn, String tempEfternavn, int tempCprFirst, int tempnyCprLast, String tempAdr) {
 
         //    SQL statement
@@ -241,7 +240,7 @@ public class DB_Statements {
         }
     }
 
-    //Methode til at insætte hans bank værdier, altså hans beløb osv.
+    /*Methode til at insætte hans bank værdier, altså hans beløb osv.*/
     public void insertNyKundeBankVardier(double lonkonto, double opsparing, double lonrente, double opsrente, int lonot, int opsot){
         //SQL statement
         String query= "INSERT INTO kontotable"+
@@ -270,7 +269,7 @@ public class DB_Statements {
 
     }
 
-    //    method to insert data
+    /*Methode for at indsætte testværdier i kundetable*/
     public void insertTestKunder() {
 
         //    SQL statement
@@ -299,7 +298,7 @@ public class DB_Statements {
     }
 
 
-    //    method to insert data
+    /*Methode for at indsætte testværdier i kontotable */
     public void insertTestKonto() {
 
         //    SQL statement - Indsætter data ind i kontotable, i kolonnerne, lonkonto, opsparing, lonrente, opsrente, lonOT, og opsOT
@@ -328,7 +327,7 @@ public class DB_Statements {
             ex.printStackTrace();
         }
     }
-    //    method to read data from table
+    /*Methode til at læse fra kundetable*/
     public void queryThisTable() {
 
         //    Selecter data fra kundetable.
@@ -361,6 +360,7 @@ public class DB_Statements {
         }
 
     }
+    /**/
     public double gettingModtagersStartbelob(int p_id){
         String query = "SELECT lonkonto FROM bank2017db.kontotable where p_id ="+p_id+" ";
 

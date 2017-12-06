@@ -182,25 +182,26 @@ public class Controller {
  */
         /*Knap der overfører*/
         if (e.getSource() == btn_overfor) {
-            //
+            //Parser String til double, for beløbet der skal overføres.
             String tempBelobParser = input_overfor_belob.getText();
             double tempOverforBelob = Double.parseDouble(tempBelobParser);
 
-            //
-            /*String tempRegParser = input_overfor_regnr.getText();//Skal ikke bruges da vi kører med p_id istedet for konto og regnr.
+            //Parser String til int, for reg.nr input.
+            //Skal ikke bruges da vi kører med p_id istedet for konto og regnr.
+            /*String tempRegParser = input_overfor_regnr.getText();
             int tempRegNr = Integer.parseInt(tempRegParser);*/
 
-            //
+            //Parser String til int, for konto.nr. input.
             String tempKontonrParser = input_overfor_kontonr.getText();
             int tempKontoNr = Integer.parseInt(tempKontonrParser);
 
-            //
+            //Henter valg af at kontoen man vil sende fra.
             char tempKontoValg = input_overfor_valgkonto.getText().charAt(0);
 
-            //
+            //Er brugerens/kundens eget id.
             int p_id =1;
 
-
+            //Bruger statement, der overføre beløbet.
             sqlStatement.overfor(p_id, tempKontoValg, tempOverforBelob, tempKontoNr);
         }
 
