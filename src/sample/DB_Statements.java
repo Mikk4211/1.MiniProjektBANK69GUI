@@ -11,7 +11,6 @@ import java.sql.Statement;
 
 /**
  * @author Mathias Bruun(TejsFrank), Mads Nielsen(TheCaptain420), Johan Stenboeg(JohanStenboeg), Benjamin Ejrup(Wexr), Mikkel Sørensen(Mikk4211).
- *
  */
 public class DB_Statements {
 
@@ -23,7 +22,7 @@ public class DB_Statements {
 
     /**
      * @param con varaible for vores database connector.
-      */
+     */
 
     private static Connection con = DB_Connector.connect();
 
@@ -36,7 +35,7 @@ public class DB_Statements {
 
         /**
          @param query der er forskellige queries vi bruger i vores program.
-         * 1. "Create Database if not exists Bank2017DB" - Laver Databasen.
+          * 1. "Create Database if not exists Bank2017DB" - Laver Databasen.
           * 2. "use Bank2017DB" - bruger databasen.
           * 3. "drop schema Bank2017DB" - Dropper databasen.
           * 4. "drop table kundeTable" - Dropper table kundeTable.
@@ -60,13 +59,15 @@ public class DB_Statements {
         }
 
         //    handle sql exceptions
-        catch(SQLException ex) {
+        catch (SQLException ex) {
             System.out.println("\n ---statement did not execute (create database)---");
             ex.printStackTrace();
         }
     }
 
-    /*En methode, der sikrer at vi bruger den rigtige Database*/
+    /**
+     *
+     */
     public void useDB() {
 
         //    SQL statement
@@ -82,7 +83,7 @@ public class DB_Statements {
         }
 
         //    handle sql exceptions
-        catch(SQLException ex) {
+        catch (SQLException ex) {
             System.out.println("\n---Statement did not execute (Use database)---");
             ex.printStackTrace();
         }
@@ -110,6 +111,7 @@ public class DB_Statements {
             ex.printStackTrace();
         }
     }
+
     /*Methode der dropper kundetable, bruges når vi "resetter" banken*/
     public void dropTableKundeTable() {
 
@@ -153,6 +155,7 @@ public class DB_Statements {
             ex.printStackTrace();
         }
     }
+
     /*En methode der opretter et kundetable, bruges når man klikker "Opret DB+Table"*/
     public void createKontoTable() {
 
@@ -178,7 +181,7 @@ public class DB_Statements {
         }
 
         //handle sql exceptions
-        catch(SQLException ex) {
+        catch (SQLException ex) {
             System.out.println("\n---Statement did not execute (kontotable)---");
             ex.printStackTrace();
         }
@@ -221,10 +224,10 @@ public class DB_Statements {
         //    SQL statement
         String query = "INSERT INTO kundeTable " +
                 "(fName, lName, cprFirst, cprLast,  address) VALUES ('" +
-                tempFornavn  +"', '"+
-                tempEfternavn +"', "+
-                tempCprFirst +", "+
-                tempnyCprLast +", '"+
+                tempFornavn + "', '" +
+                tempEfternavn + "', " +
+                tempCprFirst + ", " +
+                tempnyCprLast + ", '" +
                 tempAdr +
                 "')";
         try {
@@ -238,23 +241,23 @@ public class DB_Statements {
         }
 
         //    handle sql exceptions
-        catch(SQLException ex) {
+        catch (SQLException ex) {
             System.out.println("\n---Ny kunde kunne ikke oprettes.---");
             ex.printStackTrace();
         }
     }
 
     /*Methode til at insætte hans bank værdier, altså hans beløb osv.*/
-    public void insertNyKundeBankVardier(double lonkonto, double opsparing, double lonrente, double opsrente, int lonot, int opsot){
+    public void insertNyKundeBankVardier(double lonkonto, double opsparing, double lonrente, double opsrente, int lonot, int opsot) {
         //SQL statement
-        String query= "INSERT INTO kontotable"+
-                "(lonkonto, opsparing, lonRente, opsRente, lonOT, opsOT) VALUES ("+
-                lonkonto+", "+
-                opsparing+", "+
-                lonrente+", "+
-                opsrente+", "+
-                lonot+", "+
-                opsot+")";
+        String query = "INSERT INTO kontotable" +
+                "(lonkonto, opsparing, lonRente, opsRente, lonOT, opsOT) VALUES (" +
+                lonkonto + ", " +
+                opsparing + ", " +
+                lonrente + ", " +
+                opsrente + ", " +
+                lonot + ", " +
+                opsot + ")";
         try {
             //create statementk
             stmt = con.createStatement();
@@ -265,7 +268,7 @@ public class DB_Statements {
         }
 
         //    handle sql exceptions
-        catch(SQLException ex) {
+        catch (SQLException ex) {
             System.out.println("\n---Ny konto kunne ikke oprettes.---");
             ex.printStackTrace();
         }
@@ -283,7 +286,9 @@ public class DB_Statements {
                 "('Mads', 'Nielsen', 123456, 1234, 'HerogNuvej 5'), " +
                 "('Mathias', 'Bruun', 234567, 1234, 'Vejnavn 3'), " +
                 "('Mikkel', 'Bøgse', 345678, 1234, 'Vejnavn 4'), " +
-                "('Johan', 'Stenbøgs', 456789, 1234, 'Vejnavn 5')";
+                "('Johan', 'Stenbøgs', 456789, 1234, 'Vejnavn 5'), " +
+                "('Johannes', 'Awesome', 4567129, 5343, 'Vejnavn 10')";
+
         try {
 
             //    create statement
@@ -295,7 +300,7 @@ public class DB_Statements {
         }
 
         //    handle sql exceptions
-        catch(SQLException ex) {
+        catch (SQLException ex) {
             System.out.println("\n---Nye testkunder kunne ikke oprettes---");
             ex.printStackTrace();
         }
@@ -308,7 +313,7 @@ public class DB_Statements {
         //    SQL statement - Indsætter data ind i kontotable, i kolonnerne, lonkonto, opsparing, lonrente, opsrente, lonOT, og opsOT
         String query = "insert into kontoTable " +
                 "(lonkonto, opsparing, lonRente, opsrente, lonOT, opsOT) " +
-                "values "+
+                "values " +
                 "(10000,50000,0,5,10,1000), " +
                 "(13000, 54000, 0, 4, 5120,5200), " +
                 "(1000000, 3700, 0, 5, 1233,2000), " +
@@ -326,11 +331,12 @@ public class DB_Statements {
         }
 
         //    handle sql exceptions
-        catch(SQLException ex) {
+        catch (SQLException ex) {
             System.out.println("\n---Nye kontoer kunne ikke oprettes.---");
             ex.printStackTrace();
         }
     }
+
     /*Methode til at læse fra kundetable*/
     public void queryThisTable() {
 
@@ -346,7 +352,7 @@ public class DB_Statements {
             System.out.println("\nid\t\tname\t\taddress\n___________________________________________");
 
             // return next row in the table while true
-            while(rs.next()) {
+            while (rs.next()) {
                 int id = rs.getInt(1);
                 String fName = rs.getString("fName");
                 String lName = rs.getString("lName");
@@ -358,21 +364,22 @@ public class DB_Statements {
         }
 
         //    handle sql exceptions
-        catch(SQLException ex) {
+        catch (SQLException ex) {
             System.out.println("\n---Statement did not execute (select query)---");
             ex.printStackTrace();
         }
 
     }
+
     /**/
-    public double gettingModtagersStartbelob(int p_id){
-        String query = "SELECT lonkonto FROM bank2017db.kontotable where p_id ="+p_id+" ";
+    public double gettingModtagersStartbelob(int p_id) {
+        String query = "SELECT lonkonto FROM bank2017db.kontotable where p_id =" + p_id + " ";
 
         try {
             stmt = con.createStatement();
             rs = stmt.executeQuery(query);
             int i = 1;
-            while (rs.next()){
+            while (rs.next()) {
                 double modtagerbelob = rs.getDouble(1);
                 return modtagerbelob;
             }
@@ -416,7 +423,7 @@ public class DB_Statements {
 
     /*Methode til at overfører beløb fra din konto til anden konto.*/
     //char kontotype: 'l' for lønkonto, og 'o' for opsparing.
-    public void overfor(int p_id, char kontotype, double belob, int kontonr  ){
+    public void overfor(int p_id, char kontotype, double belob, int kontonr) {
         //
         //Vores query til at vælge opsparingskonto efter hvilket p_id du indtaster
         String query = "select opsparing from kontotable where p_id = "+p_id+" ";
@@ -430,22 +437,22 @@ public class DB_Statements {
         } else if(kontotype=='l'){
             //Så bruger den lønkonto
             kontotypen = "lonkonto";
-        }else{
+        } else {
 
             System.out.println("FEJL, forkert kontotype");
         }
-        query = "select "+kontotypen+" from kontotable where p_id = "+p_id+" ";
+        query = "select " + kontotypen + " from kontotable where p_id = " + p_id + " ";
 
 
-        try{
+        try {
             //create statement
             stmt = con.createStatement();
 
             //execute statement
             rs = stmt.executeQuery(query);
 
-            double kontobelob =0.0;
-            while(rs.next()) {
+            double kontobelob = 0.0;
+            while (rs.next()) {
                 kontobelob = rs.getInt(1);
             }
             // Printline som printer kontobeløb. Før man har overført noget.
@@ -508,20 +515,28 @@ public class DB_Statements {
     }
 
 
+    //Metode til at vise beløb på lønkonto og opsparingskontoen samt renten og max overtræk for de 2 kontoer.
+    //Metoden navngives samt der opsættes 3 variabler. p_id er konto'idet, så den rigtige person får vist sin konto.
     public String opsparingskontovaerdier(int p_id, String arg, String arg2) {
+        //Sql statement, der går ind i databasen og henter henholdsvis konto og opsparings beløb fra en selvvalgt p_id værdi.
         String query = "select lonkonto, opsparing, lonRente, opsRente, lonOT, opsOT from kontotable WHERE p_id = " + p_id + " ";
+        //Deklarerer de forskellige variabler, til at være String.
         String lonkonto = " ";
         String lonRente = " ";
         String lonOT = " ";
         String opsparing = " ";
         String opsRente = " ";
         String opsOT = " ";
+        //En try/catch blok der går prøver at hente værdierne fra databasen.
         try {
             //Connection
             stmt = con.createStatement();
             //Execute query
             rs = stmt.executeQuery(query);
+            //Opsætter et whileloop.
             while (rs.next()) {
+                //I databasen, mens der er en værdi efter den læste værdi, fortsætter den indtil der ikke er flere.
+                //Derefter deklarereres værdierne.
                 lonkonto = rs.getString("lonkonto"); //returns p_id
                 lonRente = rs.getString("lonRente"); //returns p_id
                 lonOT = rs.getString("lonOT"); //returns p_id
@@ -529,23 +544,29 @@ public class DB_Statements {
                 opsRente = rs.getString("opsRente"); //returns p_id
                 opsOT = rs.getString("opsOT"); //returns p_id
             }
+            //Først kontrolleres arg2, om det er til lønkontoen eller opsparingskontoen.
             if (arg2 == "lonkonto") {
+                //Hvis det andet argument er lonkonto, skal den retunere værdierne fra lonkonto.
                 if (arg == "lonkonto") {
-                    return lonkonto+" dkk.";
+                    return lonkonto + " dkk.";
+                    //Hvis det andet argument er lonRente, skal den retunere værdierne fra lonRente.
                 } else if (arg == "lonRente") {
-                    return lonRente+"%";
+                    return lonRente + "%";
+                    //Hvis  det andet argument er lonOT, skal den retunere værdierne for lonOT.
                 } else if (arg == "lonOT") {
                     return lonOT + " dkk.";
+                    //Hvis det andet argument ikke er et af de 3 over, er der sket en fejl og det retunerer den.
                 } else {
                     return "fejl";
                 }
-            }else if (arg2 == "opsparingskonto"){
+                //Det samme som over, bare i forhold til opsparingskontoen.
+            } else if (arg2 == "opsparingskonto") {
                 if (arg == "opsparing") {
-                    return opsparing+ " dkk.";
+                    return opsparing + " dkk.";
                 } else if (arg == "opsRente") {
                     return opsRente + "%";
                 } else if (arg == "opsOT") {
-                    return opsOT+" dkk.";
+                    return opsOT + " dkk.";
                 } else {
                     return "fejl";
                 }
@@ -557,4 +578,40 @@ public class DB_Statements {
         return "fejl";
     }
 
+    public String labels_kundeliste(int id) {
+        //Sql statement, der går ind i databasen og henter henholdsvis konto og opsparings beløb fra en selvvalgt p_id værdi.
+        String query = "select lName, fName, cprFirst, cprLast from kundetable WHERE id = " + id + " ";
+        //Deklarerer de forskellige variabler, til at være String.
+        String lName = " ";
+        String fName = " ";
+        String cprFirst = " ";
+        String cprLast = " ";
+        //En try/catch blok der går prøver at hente værdierne fra databasen.
+        try {
+            //Connection
+            stmt = con.createStatement();
+            //Execute query
+            rs = stmt.executeQuery(query);
+            //Opsætter et whileloop.
+            while (rs.next()) {
+                //I databasen, mens der er en værdi efter den læste værdi, fortsætter den indtil der ikke er flere.
+                //Derefter deklarereres værdierne.
+                fName = rs.getString("fName"); //returns p_id
+                lName = rs.getString("lName"); //returns p_id
+                cprFirst = rs.getString("cprFirst"); //returns p_id
+                cprLast = rs.getString("cprLast"); //returns p_id
+                if (id <= fName.length() + 1) {
+                    return lName + ", " + fName + ": " + cprFirst + "-" + cprLast;
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println("---fejl, problemer med at vise beløb for konto");
+        }
+        return "fejl";
     }
+
+
+}
+
+
