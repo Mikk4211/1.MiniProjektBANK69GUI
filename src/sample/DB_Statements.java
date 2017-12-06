@@ -382,16 +382,17 @@ public class DB_Statements {
     /*Methode til at overfører beløb fra din konto til anden konto.*/
     //char kontotype: 'l' for lønkonto, og 'o' for opsparing.
     public void overfor(int p_id, char kontotype, double belob, int kontonr  ){
-        //
+        //Vores query til at vælge opsparingskonto efter hvilket p_id du indtaster
         String query = "select opsparing from kontotable where p_id = "+p_id+" ";
         //
         String kontotypen= "opsparing";
-        //
+        //Hvis du har skrevet o
         if (kontotype=='o'){
-            //
+            //Så er det opsparing den bruger
             kontotypen = "opsparing";
+            // ellers hvis du har skrevet l
         } else if(kontotype=='l'){
-            //
+            //Så bruger den lønkonto
             kontotypen = "lonkonto";
         }else{
 
@@ -411,18 +412,19 @@ public class DB_Statements {
             while(rs.next()) {
                 kontobelob = rs.getInt(1);
             }
+            // Printline som printer kontobeløb. Før man har overført noget.
             System.out.println("Beløbet på afsenders konto før overførelse: " +kontobelob);
-            //
+            // et variabel og en printline som tager den resterende sum og printer den.
             double restSum = kontobelob-belob;
             System.out.println("Beløbet på afsenders konto efter overførelse: "+restSum);
 
-            //
+            //Metode som opdaterer SQL tabellen efter en overførsel har fundet sted.
             String query2 = "UPDATE kontotable SET "+kontotypen +" = "+restSum +" where p_id = "+p_id+" ";
 
             try{
-                //
+                //create statement
                 stmt=con.createStatement();
-                //
+                //execute statement
                 stmt.executeUpdate(query2);
 
                 //
