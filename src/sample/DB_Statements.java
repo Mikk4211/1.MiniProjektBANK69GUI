@@ -378,6 +378,31 @@ public class DB_Statements {
 
         return 0;
     }
+    /* */
+    public int gettingOTbelob(String kontotypen, int p_id){
+       String kontotype = "lonOT";
+       if (kontotypen=="o") {
+            kontotype = "opsOT";
+       }else if(kontotypen=="l"){
+           kontotype="lonOT";
+       }else{
+           System.out.println("---Fejl, forkert konto type---");
+       }
+        //Sql statement
+       String query = "SELECT " +kontotype+" FROM bank2017db.kontotable WHERE p_id =" +p_id+ " ";
+
+       //Prøver at køre det
+        try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(query);
+        } catch (SQLException e) {
+            System.out.println("---Fejl, kunne ikke hente overtræk værdien ---");
+            e.printStackTrace();
+        }
+
+
+        return 0;
+    }
 
     /*Methode til at overfører beløb fra din konto til anden konto.*/
     //char kontotype: 'l' for lønkonto, og 'o' for opsparing.
