@@ -252,7 +252,7 @@ public class DB_Statements {
                 lonot+", "+
                 opsot+")";
         try {
-            //create statement
+            //create statementk
             stmt = con.createStatement();
 
             //execute statement
