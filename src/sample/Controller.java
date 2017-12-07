@@ -96,6 +96,16 @@ public class Controller {
     @FXML
     private Label lbl_konto_tilladtOvertræk;
 
+    /*Login*/
+    @FXML
+    private Button btn_logIn;
+    @FXML
+    private TextField input_login_brugernavn;
+    @FXML
+    private TextField input_login_adgangskode;
+    @FXML
+    private Label lbl_login_velkommen;
+
     /**
      * @param Forskellige parametre der bruges i den følgende kode der beskriver hvad knapperne på GUI'en skal gøre.
      */
