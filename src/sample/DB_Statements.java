@@ -66,7 +66,7 @@ public class DB_Statements {
     }
 
     /**
-     *
+     * En Methode der sikre os at vi bruger den rigtige Database.
      */
     public void useDB() {
 
@@ -371,7 +371,7 @@ public class DB_Statements {
 
     }
 
-    /**/
+    /* Henter modtagers Start beløb fra SQL*/
     public double gettingModtagersStartbelob(int p_id) {
         String query = "SELECT lonkonto FROM bank2017db.kontotable where p_id =" + p_id + " ";
 
@@ -389,7 +389,7 @@ public class DB_Statements {
 
         return 0;
     }
-    /* */
+    /* Henter Overtræks beløbet fra SQL */
     public int gettingOTbelob(char kontotypen, int p_id){
        String kontotype = "lonOT";
        if (kontotypen=='o') {
@@ -608,7 +608,7 @@ public class DB_Statements {
             ex.printStackTrace();
             System.out.println("---fejl, problemer med at vise beløb for konto");
         }
-        return "fejl";
+        return " ";
     }
 
 
