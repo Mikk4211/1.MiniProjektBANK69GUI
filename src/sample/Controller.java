@@ -107,6 +107,8 @@ public class Controller {
      */
     /*Konto*/
     @FXML
+    private TextField input_bruger_id;
+    @FXML
     private Button btn_konto_lonkonto;
     @FXML
     private Button btn_konto_opsparingskonto;
@@ -253,10 +255,15 @@ public class Controller {
         }
 
         if (e.getSource() == btn_konto_opsparingskonto) {
+            //Henter P_id fra input
+            int p_idInputKonto ;
+            String tempP_idParser = input_nyCprLast.getText();
+            p_idInputKonto = Integer.parseInt(tempP_idParser);
+
             //Kontrollere at knappen er opsat korrekt og virker før der bliver indsat kode.
-            lbl_konto_beløb.setText(sqlStatement.opsparingskontovaerdier(1, "opsparing", "opsparingskonto"));
-            lbl_konto_renteIndsats.setText(sqlStatement.opsparingskontovaerdier(1, "opsRente", "opsparingskonto"));
-            lbl_konto_tilladtOvertræk.setText(sqlStatement.opsparingskontovaerdier(1, "opsOT", "opsparingskonto"));
+            lbl_konto_beløb.setText(sqlStatement.opsparingskontovaerdier(p_idInputKonto, "opsparing", "opsparingskonto"));
+            lbl_konto_renteIndsats.setText(sqlStatement.opsparingskontovaerdier(p_idInputKonto, "opsRente", "opsparingskonto"));
+            lbl_konto_tilladtOvertræk.setText(sqlStatement.opsparingskontovaerdier(p_idInputKonto, "opsOT", "opsparingskonto"));
 
         }
 
