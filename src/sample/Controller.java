@@ -63,7 +63,6 @@ public class Controller {
 
     /**
      * Javafx klasse for liste over kunder
-     *
      */
     @FXML
     private Button btn_hentkundeliste;
@@ -77,6 +76,16 @@ public class Controller {
     private Label lbl_listeOverKunder2;
     @FXML
     private Label lbl_listeOverKunder3;
+    @FXML
+    private Label lbl_kunde_beløb;
+    @FXML
+    private Label lbl_kunde_renteindsats;
+    @FXML
+    private Label lbl_kunde_TO;
+    @FXML
+    private Button btn_kunder_lonkonto;
+    @FXML
+    private Button btn_kunder_opsparingskonto;
 
 
     /**
@@ -167,7 +176,7 @@ public class Controller {
             System.out.println("Ny kunde oprettet\n------------------- ");
             System.out.println(" Navn :" + tempFornavn + " " + tempEfternavn);
             System.out.println("CPR : " + tempCprFirst + "-" + tempCprLast);
-            System.out.println("Adresse : "+tempAdr);
+            System.out.println("Adresse : " + tempAdr);
 
             /*kunde bankværdier parserer. De ændre værdierne fra string til int/double*/
             //parser for lønkonto beløbet
@@ -234,7 +243,7 @@ public class Controller {
             char tempKontoValg = input_overfor_valgkonto.getText().charAt(0);
 
             //Er brugerens/kundens eget id.
-            int p_id =1;
+            int p_id = 1;
 
             //Bruger statement, der overføre beløbet.
             sqlStatement.overfor(p_id, tempKontoValg, tempOverforBelob, tempKontoNr);
@@ -256,7 +265,7 @@ public class Controller {
 
         if (e.getSource() == btn_konto_opsparingskonto) {
             //Henter P_id fra input
-            int p_idInputKonto ;
+            int p_idInputKonto;
             String tempP_idParser = input_nyCprLast.getText();
             p_idInputKonto = Integer.parseInt(tempP_idParser);
 
@@ -266,42 +275,41 @@ public class Controller {
             lbl_konto_tilladtOvertræk.setText(sqlStatement.opsparingskontovaerdier(p_idInputKonto, "opsOT", "opsparingskonto"));
 
         }
-        if (e.getSource() == btn_Kunder_lonkonto) {
+        if (e.getSource() == btn_kunder_lonkonto) {
             //Kontrollere at knappen er opsat korrekt og virker før der bliver indsat kode.
-            lbl_konto_beløb.setText(sqlStatement.opsparingskontovaerdier(1, "lonkonto", "lonkonto"));
-            lbl_konto_renteIndsats.setText(sqlStatement.opsparingskontovaerdier(1, "lonRente", "lonkonto"));
-            lbl_konto_tilladtOvertræk.setText(sqlStatement.opsparingskontovaerdier(1, "lonOT", "lonkonto"));
+            lbl_kunde_beløb.setText(sqlStatement.opsparingskontovaerdier(1, "lonkonto", "lonkonto"));
+            lbl_kunde_renteindsats.setText(sqlStatement.opsparingskontovaerdier(1, "lonRente", "lonkonto"));
+            lbl_kunde_TO.setText(sqlStatement.opsparingskontovaerdier(1, "lonOT", "lonkonto"));
 
         }
-        if (e.getSource() == btn_Kunder_opsparingskonto) {
+        if (e.getSource() == btn_kunder_opsparingskonto) {
             //Henter P_id fra input
-            int p_idInputKonto ;
+            int p_idInputKonto;
             String tempP_idParser = input_nyCprLast.getText();
             p_idInputKonto = Integer.parseInt(tempP_idParser);
 
             //Kontrollere at knappen er opsat korrekt og virker før der bliver indsat kode.
-            lbl_konto_beløb.setText(sqlStatement.opsparingskontovaerdier(p_idInputKonto, "opsparing", "opsparingskonto"));
-            lbl_konto_renteIndsats.setText(sqlStatement.opsparingskontovaerdier(p_idInputKonto, "opsRente", "opsparingskonto"));
-            lbl_konto_tilladtOvertræk.setText(sqlStatement.opsparingskontovaerdier(p_idInputKonto, "opsOT", "opsparingskonto"));
+            lbl_kunde_beløb.setText(sqlStatement.opsparingskontovaerdier(p_idInputKonto, "opsparing", "opsparingskonto"));
+            lbl_kunde_renteindsats.setText(sqlStatement.opsparingskontovaerdier(p_idInputKonto, "opsRente", "opsparingskonto"));
+            lbl_kunde_TO.setText(sqlStatement.opsparingskontovaerdier(p_idInputKonto, "opsOT", "opsparingskonto"));
 
 
-        if(e.getSource() == btn_hentkundeliste) {
-            id_plusser =0;
-            lbl_listeOverKunder1.setText(sqlStatement.labels_kundeliste(1));
-            lbl_listeOverKunder2.setText(sqlStatement.labels_kundeliste(2));
-            lbl_listeOverKunder3.setText(sqlStatement.labels_kundeliste(3));
+            if (e.getSource() == btn_hentkundeliste) {
+                id_plusser = 0;
+                lbl_listeOverKunder1.setText(sqlStatement.labels_kundeliste(1));
+                lbl_listeOverKunder2.setText(sqlStatement.labels_kundeliste(2));
+                lbl_listeOverKunder3.setText(sqlStatement.labels_kundeliste(3));
+            }
+            if (e.getSource() == btn_næsteSetListe) {
+                id_plusser += 3;
+                lbl_listeOverKunder1.setText(sqlStatement.labels_kundeliste((1 + id_plusser)));
+                lbl_listeOverKunder2.setText(sqlStatement.labels_kundeliste((2 + id_plusser)));
+                lbl_listeOverKunder3.setText(sqlStatement.labels_kundeliste((3 + id_plusser)));
+
+            }
         }
-        if(e.getSource() == btn_næsteSetListe) {
-            id_plusser +=3;
-            lbl_listeOverKunder1.setText(sqlStatement.labels_kundeliste((1 + id_plusser)));
-            lbl_listeOverKunder2.setText(sqlStatement.labels_kundeliste((2 + id_plusser)));
-            lbl_listeOverKunder3.setText(sqlStatement.labels_kundeliste((3 + id_plusser)));
-
-        }
-    }
-
-
 
 
     }
+}
 
