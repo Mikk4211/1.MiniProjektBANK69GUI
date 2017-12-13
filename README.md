@@ -22,7 +22,7 @@ På ***[BR]Liste over Kunder*** kan du se diverse data, såsom indestående bel�
 
 Viser hvilken tab man er i
 
-![](https://image.prntscr.com/image/qCxcK8nDSSShXu0A7Njmlg.png)
+![](https://image.prntscr.com/image/SQNWEmkNRpWEBi8zrSWn1Q.png)
 
 Viser knappen for oprettelse af tabel i databasen
 
