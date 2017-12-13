@@ -18,7 +18,7 @@ Når du først åbner programmet, bliver du mødt af et vindue, hvor der er et a
 
 På ***[BR]Liste over Kunder*** kan du se diverse data, såsom indestående beløb, rentesats samt tilladt overtræk for en given konto for den respektive kunde. Her skulle det være muligt, for en BR at skifte mellem de forskellige kunder og se data for kunden. Der er 3 knapper i dette vindue, *lønkonto, opsparingskonto* og en universel knap *opret DB+table*. De to første knapper, skulle skifte mellem hvilken konto for kunden du kan se data over. Den sidste knap laver en tabel i vores MySQL databse, hvor dataene bliver opbevaret. 
 
-![](https://image.prntscr.com/image/mLVPm4pESBS2fho1okt6Tg.png)
+![](https://image.prntscr.com/image/4jUAv1yeRZu1Juw34RnRXQ.png)
 
 Viser hvilken tab man er i
 
