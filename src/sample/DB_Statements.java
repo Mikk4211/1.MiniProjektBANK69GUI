@@ -517,7 +517,7 @@ public class DB_Statements {
 
     //Metode til at vise beløb på lønkonto og opsparingskontoen samt renten og max overtræk for de 2 kontoer.
     //Metoden navngives samt der opsættes 3 variabler. p_id er konto'idet, så den rigtige person får vist sin konto.
-    public String opsparingskontovaerdier(int p_id, String arg, String arg2) {
+    public String opsparingskontovaerdier(int p_id, String kontoRenteOT, String kontoType) {
         //Sql statement, der går ind i databasen og henter henholdsvis konto og opsparings beløb fra en selvvalgt p_id værdi.
         String query = "select lonkonto, opsparing, lonRente, opsRente, lonOT, opsOT from kontotable WHERE p_id = " + p_id + " ";
         //Deklarerer de forskellige variabler, til at være String.
@@ -544,28 +544,28 @@ public class DB_Statements {
                 opsRente = rs.getString("opsRente"); //returns p_id
                 opsOT = rs.getString("opsOT"); //returns p_id
             }
-            //Først kontrolleres arg2, om det er til lønkontoen eller opsparingskontoen.
-            if (arg2 == "lonkonto") {
+            //Først kontrolleres kontoType, om det er til lønkontoen eller opsparingskontoen.
+            if (kontoType == "lonkonto") {
                 //Hvis det andet argument er lonkonto, skal den retunere værdierne fra lonkonto.
-                if (arg == "lonkonto") {
+                if (kontoRenteOT == "lonkonto") {
                     return lonkonto + " dkk.";
                     //Hvis det andet argument er lonRente, skal den retunere værdierne fra lonRente.
-                } else if (arg == "lonRente") {
+                } else if (kontoRenteOT == "lonRente") {
                     return lonRente + "%";
                     //Hvis  det andet argument er lonOT, skal den retunere værdierne for lonOT.
-                } else if (arg == "lonOT") {
+                } else if (kontoRenteOT == "lonOT") {
                     return lonOT + " dkk.";
                     //Hvis det andet argument ikke er et af de 3 over, er der sket en fejl og det retunerer den.
                 } else {
                     return "fejl";
                 }
                 //Det samme som over, bare i forhold til opsparingskontoen.
-            } else if (arg2 == "opsparingskonto") {
-                if (arg == "opsparing") {
+            } else if (kontoType == "opsparingskonto") {
+                if (kontoRenteOT == "opsparing") {
                     return opsparing + " dkk.";
-                } else if (arg == "opsRente") {
+                } else if (kontoRenteOT == "opsRente") {
                     return opsRente + "%";
-                } else if (arg == "opsOT") {
+                } else if (kontoRenteOT == "opsOT") {
                     return opsOT + " dkk.";
                 } else {
                     return "fejl";
@@ -601,7 +601,7 @@ public class DB_Statements {
                 cprFirst = rs.getString("cprFirst"); //returns p_id
                 cprLast = rs.getString("cprLast"); //returns p_id
                 if (id <= fName.length() + 1) {
-                    return lName + ", " + fName + ": " + cprFirst + "-" + cprLast + ", p_id: " + id;
+                    return lName + ", " + fName + ": " + cprFirst + "-" + cprLast + ", p_id:  " + id;
                 }
             }
         } catch (SQLException ex) {

@@ -266,6 +266,24 @@ public class Controller {
             lbl_konto_tilladtOvertræk.setText(sqlStatement.opsparingskontovaerdier(p_idInputKonto, "opsOT", "opsparingskonto"));
 
         }
+        if (e.getSource() == btn_Kunder_lonkonto) {
+            //Kontrollere at knappen er opsat korrekt og virker før der bliver indsat kode.
+            lbl_konto_beløb.setText(sqlStatement.opsparingskontovaerdier(1, "lonkonto", "lonkonto"));
+            lbl_konto_renteIndsats.setText(sqlStatement.opsparingskontovaerdier(1, "lonRente", "lonkonto"));
+            lbl_konto_tilladtOvertræk.setText(sqlStatement.opsparingskontovaerdier(1, "lonOT", "lonkonto"));
+
+        }
+        if (e.getSource() == btn_Kunder_opsparingskonto) {
+            //Henter P_id fra input
+            int p_idInputKonto ;
+            String tempP_idParser = input_nyCprLast.getText();
+            p_idInputKonto = Integer.parseInt(tempP_idParser);
+
+            //Kontrollere at knappen er opsat korrekt og virker før der bliver indsat kode.
+            lbl_konto_beløb.setText(sqlStatement.opsparingskontovaerdier(p_idInputKonto, "opsparing", "opsparingskonto"));
+            lbl_konto_renteIndsats.setText(sqlStatement.opsparingskontovaerdier(p_idInputKonto, "opsRente", "opsparingskonto"));
+            lbl_konto_tilladtOvertræk.setText(sqlStatement.opsparingskontovaerdier(p_idInputKonto, "opsOT", "opsparingskonto"));
+
 
         if(e.getSource() == btn_hentkundeliste) {
             id_plusser =0;

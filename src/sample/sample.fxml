@@ -22,9 +22,6 @@
                                     <children>
                                         <TextField fx:id="input_bruger_id" layoutX="250" layoutY="30" prefHeight="17" prefWidth="40" text=" " promptText="Indtast p_id"/>
                                         <Label fx:id="info_bruger_id" layoutX="300" layoutY="32" prefHeight="17" prefWidth="120" text=": Indtast p_id"/>
-                                        <Label fx:id="lbl_listeOverKunder1" layoutX="14.0" layoutY="67.0" prefHeight="17.0" prefWidth="200.0" text=" " />
-                                        <Label fx:id="lbl_listeOverKunder2" layoutX="14.0" layoutY="97.0" prefHeight="17.0" prefWidth="200.0" text=" " />
-                                        <Label fx:id="lbl_listeOverKunder3" layoutX="14.0" layoutY="127.0" prefHeight="17.0" prefWidth="200.0" text=" " />
                                         <Label fx:id="lbl_listeOverKunder1" layoutX="16.0" layoutY="67.0" prefHeight="17.0" prefWidth="230.0" text=" " />
                                         <Label fx:id="lbl_listeOverKunder2" layoutX="16.0" layoutY="97.0" prefHeight="17.0" prefWidth="230.0" text=" " />
                                         <Label fx:id="lbl_listeOverKunder3" layoutX="16.0" layoutY="127.0" prefHeight="17.0" prefWidth="230.0" text=" " />
@@ -35,8 +32,8 @@
                                         <Label layoutX="289.0" layoutY="112.0" prefHeight="17.0" prefWidth="146.0" text="Danske kroner" />
                                         <Label layoutX="326.0" layoutY="143.0" prefHeight="17.0" prefWidth="109.0" text="Procent" />
                                         <Label layoutX="342.0" layoutY="172.0" prefHeight="17.0" prefWidth="90.0" text="Danske kroner" />
-                              <Button fx:id="btn_lønkonto" layoutX="249.0" layoutY="67.0" mnemonicParsing="false" text="Lønkonto" />
-                              <Button fx:id="btn_opsparingskonto" layoutX="327.0" layoutY="67.0" mnemonicParsing="false" text="Opsparingskonto" />
+                              <Button fx:id="btn_Kunder_lonkonto" layoutX="249.0" layoutY="67.0" mnemonicParsing="false" text="Lønkonto" />
+                              <Button fx:id="btn_Kunder_opsparingskonto" layoutX="327.0" layoutY="67.0" mnemonicParsing="false" text="Opsparingskonto" />
                                         <Button fx:id="btn_hentkundeliste" layoutX="14.0" layoutY="228.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Hent kundeliste" />
                                     </children>
                                 </AnchorPane>
