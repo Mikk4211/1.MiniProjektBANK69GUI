@@ -601,7 +601,7 @@ public class DB_Statements {
                 cprFirst = rs.getString("cprFirst"); //returns p_id
                 cprLast = rs.getString("cprLast"); //returns p_id
                 if (id <= fName.length() + 1) {
-                    return lName + ", " + fName + ": " + cprFirst + "-" + cprLast;
+                    return lName + ", " + fName + ": " + cprFirst + "-" + cprLast + ", p_id: " + id;
                 }
             }
         } catch (SQLException ex) {
