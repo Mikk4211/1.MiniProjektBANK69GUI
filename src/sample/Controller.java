@@ -133,6 +133,7 @@ public class Controller {
     public int tempCprFirst = 0, tempCprLast = 0;
     String tempFornavn, tempEfternavn, tempAdr;
     char symbol;
+    int id_plusser = 0;
 
 
     /**
@@ -260,17 +261,16 @@ public class Controller {
         }
 
         if(e.getSource() == btn_hentkundeliste) {
-
+            id_plusser =0;
             lbl_listeOverKunder1.setText(sqlStatement.labels_kundeliste(1));
             lbl_listeOverKunder2.setText(sqlStatement.labels_kundeliste(2));
             lbl_listeOverKunder3.setText(sqlStatement.labels_kundeliste(3));
         }
-        int id_plusser = 0;
         if(e.getSource() == btn_næsteSetListe) {
             id_plusser +=3;
-            lbl_listeOverKunder1.setText(sqlStatement.labels_kundeliste(1 + id_plusser));
-            lbl_listeOverKunder2.setText(sqlStatement.labels_kundeliste(2 + id_plusser));
-            lbl_listeOverKunder3.setText(sqlStatement.labels_kundeliste(3 + id_plusser));
+            lbl_listeOverKunder1.setText(sqlStatement.labels_kundeliste((1 + id_plusser)));
+            lbl_listeOverKunder2.setText(sqlStatement.labels_kundeliste((2 + id_plusser)));
+            lbl_listeOverKunder3.setText(sqlStatement.labels_kundeliste((3 + id_plusser)));
 
         }
     }
