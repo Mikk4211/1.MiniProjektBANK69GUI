@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -60,10 +62,29 @@ public class Controller {
 
 
     /**
+     * Javafx klasse for liste over kunder
+     *
+     */
+    @FXML
+    private Button btn_hentkundeliste;
+    @FXML
+    private Button btn_næsteSetListe;
+    @FXML
+    private ListView listview_kunder;
+    @FXML
+    private Label lbl_listeOverKunder1;
+    @FXML
+    private Label lbl_listeOverKunder2;
+    @FXML
+    private Label lbl_listeOverKunder3;
+
+
+    /**
      * Javafx klasse for knap på opret database.
      */
     /*Opret test DB*/
-    @FXML
+
+
     private Button btn_opretDBTing;
     /**
      * Javafx klasser for overfør siden på GUI'en, med labels, knapper og textfelter.
@@ -224,22 +245,38 @@ public class Controller {
 
         if (e.getSource() == btn_konto_lonkonto) {
             //Kontrollere at knappen er opsat korrekt og virker før der bliver indsat kode.
-            lbl_konto_beløb.setText(sqlStatement.opsparingskontovaerdier(1,"lonkonto", "lonkonto"));
-            lbl_konto_renteIndsats.setText(sqlStatement.opsparingskontovaerdier(1,"lonRente", "lonkonto"));
-            lbl_konto_tilladtOvertræk.setText(sqlStatement.opsparingskontovaerdier(1,"lonOT", "lonkonto"));
+            lbl_konto_beløb.setText(sqlStatement.opsparingskontovaerdier(1, "lonkonto", "lonkonto"));
+            lbl_konto_renteIndsats.setText(sqlStatement.opsparingskontovaerdier(1, "lonRente", "lonkonto"));
+            lbl_konto_tilladtOvertræk.setText(sqlStatement.opsparingskontovaerdier(1, "lonOT", "lonkonto"));
 
         }
 
         if (e.getSource() == btn_konto_opsparingskonto) {
             //Kontrollere at knappen er opsat korrekt og virker før der bliver indsat kode.
-            lbl_konto_beløb.setText(sqlStatement.opsparingskontovaerdier(1,"opsparing", "opsparingskonto"));
-            lbl_konto_renteIndsats.setText(sqlStatement.opsparingskontovaerdier(1,"opsRente", "opsparingskonto"));
-            lbl_konto_tilladtOvertræk.setText(sqlStatement.opsparingskontovaerdier(1,"opsOT", "opsparingskonto"));
+            lbl_konto_beløb.setText(sqlStatement.opsparingskontovaerdier(1, "opsparing", "opsparingskonto"));
+            lbl_konto_renteIndsats.setText(sqlStatement.opsparingskontovaerdier(1, "opsRente", "opsparingskonto"));
+            lbl_konto_tilladtOvertræk.setText(sqlStatement.opsparingskontovaerdier(1, "opsOT", "opsparingskonto"));
 
         }
+
+        if(e.getSource() == btn_hentkundeliste) {
+
+            lbl_listeOverKunder1.setText(sqlStatement.labels_kundeliste(1));
+            lbl_listeOverKunder2.setText(sqlStatement.labels_kundeliste(2));
+            lbl_listeOverKunder3.setText(sqlStatement.labels_kundeliste(3));
+        }
+        int id_plusser = 0;
+        if(e.getSource() == btn_næsteSetListe) {
+            id_plusser +=3;
+            lbl_listeOverKunder1.setText(sqlStatement.labels_kundeliste(1 + id_plusser));
+            lbl_listeOverKunder2.setText(sqlStatement.labels_kundeliste(2 + id_plusser));
+            lbl_listeOverKunder3.setText(sqlStatement.labels_kundeliste(3 + id_plusser));
+
+        }
+    }
+
 
 
 
     }
-}
 

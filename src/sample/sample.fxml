@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -11,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
             <children>
@@ -21,7 +20,10 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                     <children>
-                                        <ListView layoutX="14.0" layoutY="29.0" prefHeight="200.0" prefWidth="200.0" />
+                                        <Label fx:id="lbl_listeOverKunder1" layoutX="14.0" layoutY="67.0" prefHeight="17.0" prefWidth="200.0" text=" " />
+                                        <Label fx:id="lbl_listeOverKunder2" layoutX="14.0" layoutY="97.0" prefHeight="17.0" prefWidth="200.0" text=" " />
+                                        <Label fx:id="lbl_listeOverKunder3" layoutX="14.0" layoutY="127.0" prefHeight="17.0" prefWidth="200.0" text=" " />
+                                        <Button fx:id="btn_næsteSetListe" layoutX="115.0" layoutY="228.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Næste" />
                                         <Text layoutX="250.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beløb:" />
                                         <Text layoutX="250.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Renteindsats:" />
                                         <Text layoutX="250.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tilladt overtræk:" />
@@ -30,6 +32,7 @@
                                         <Label layoutX="342.0" layoutY="172.0" prefHeight="17.0" prefWidth="90.0" text="Danske kroner" />
                               <Button fx:id="btn_lønkonto" layoutX="249.0" layoutY="67.0" mnemonicParsing="false" text="Lønkonto" />
                               <Button fx:id="btn_opsparingskonto" layoutX="327.0" layoutY="67.0" mnemonicParsing="false" text="Opsparingskonto" />
+                                        <Button fx:id="btn_hentkundeliste" layoutX="14.0" layoutY="228.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Hent kundeliste" />
                                     </children>
                                 </AnchorPane>
                             </content>
